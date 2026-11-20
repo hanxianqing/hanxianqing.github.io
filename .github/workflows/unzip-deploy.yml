@@ -1,0 +1,62 @@
+name: Unzip site deployments
+on:
+  push:
+    branches: [main]
+permissions:
+  contents: write
+jobs:
+  unzip:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Unzip site zips
+        run: |
+          set -e
+          ls -la
+          ls -la localtools classroomkit templatepack pennymath || true
+          deploy() {
+            src="$1"; dest="$2"; keep="$3"
+            [ -f "$src" ] || { echo "missing $src"; return 1; }
+            tmp=$(mktemp -d)
+            unzip -o -q "$src" -d "$tmp"
+            echo "--- contents of $src ---"
+            find "$tmp" -maxdepth 3 -print | head -n 100
+            if [ -z "$keep" ]; then rm -rf "$dest"; fi
+            mkdir -p "$dest"
+            entries=$(find "$tmp" -mindepth 1 -maxdepth 1 | wc -l)
+            if [ "$entries" -eq 1 ] && [ -d "$(find "$tmp" -mindepth 1 -maxdepth 1)" ]; then
+              inner=$(find "$tmp" -mindepth 1 -maxdepth 1)
+              cp -a "$inner"/. "$dest"/
+            else
+              cp -a "$tmp"/. "$dest"/
+            fi
+            rm -rf "$tmp"
+          }
+          deploy merry-printables-site.zip . keep
+          deploy localtools/localtools-site.zip localtools
+          deploy classroomkit/classroomkit-site.zip classroomkit
+          deploy templatepack/templatepack-site.zip templatepack
+          deploy pennymath/pennymath-site.zip pennymath
+          rm -f merry-printables-site.zip localtools/localtools-site.zip classroomkit/classroomkit-site.zip templatepack/templatepack-site.zip pennymath/pennymath-site.zip
+          rm -f localtools/build_site.py
+          rm -rf localtools/pack
+          find . -maxdepth 2 -name '*.md' -delete
+          ls -la
+          ls -la localtools classroomkit templatepack pennymath || true
+          git config user.name "hanxianqing"
+          git config user.email "hanxianqing@users.noreply.github.com"
+          git status --short
+          git add -A
+          git status --short
+          git commit -m "Deploy 5 sites from zips" || echo "nothing to commit"
+          git push
+      - name: Delete this workflow
+        run: |
+          set -e
+          git pull --rebase
+          git config user.name "hanxianqing"
+          git config user.email "hanxianqing@users.noreply.github.com"
+          rm -f .github/workflows/unzip-deploy.yml
+          git add -A
+          git commit -m "Remove unzip deployment workflow" || echo "nothing to commit"
+          git push
