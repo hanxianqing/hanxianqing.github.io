@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mortgage Calculator — Full PITI Payment + Amortisation | PennyMath</title>
+<meta name="description" content="Free mortgage calculator with the full PITI breakdown (principal, interest, tax, insurance, PMI, HOA), extra payments and a full amortisation schedule. No sign-up.">
+<link rel="canonical" href="https://hanxianqing.github.io/pennymath/mortgage-calculator.html">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/style.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Mortgage Calculator \u2014 Full PITI Payment + Amortisation | PennyMath", "description": "Free mortgage calculator with the full PITI breakdown (principal, interest, tax, insurance, PMI, HOA), extra payments and a full amortisation schedule. No sign-up.", "url": "https://hanxianqing.github.io/pennymath/mortgage-calculator.html", "isPartOf": {"@type": "WebSite", "name": "PennyMath", "url": "https://hanxianqing.github.io/pennymath"}}</script>
+</head><body>
+<header class="site"><div class="wrap"><a class="brand" href="index.html">Penny<b>Math</b></a>
+<nav class="main"><a href="index.html">Home</a><a href="compound-interest-calculator.html">Compound Interest</a><a href="mortgage-calculator.html" aria-current="page">Mortgage</a><a href="salary-calculator.html">Salary & Take-Home</a><a href="loan-payoff-calculator.html">Loan & Debt Payoff</a></nav></div></header>
+<div class="hero"><div class="wrap">
+<h1>Mortgage Calculator <span class="badge">Estimate</span></h1>
+<p class="lede">The full monthly cost of a home — principal, interest, tax, insurance, PMI and HOA — plus the whole amortisation schedule.</p></div></div>
+<section><div class="wrap"><div class="calc">
+<div class="panel">
+<label for="price">Home price ($)</label><input id="price" type="number" value="400000" min="0" step="1000">
+<label for="down">Down payment ($)</label><input id="down" type="number" value="80000" min="0" step="1000">
+<label for="rate">Interest rate (% per year)</label><input id="rate" type="number" value="6.5" min="0" max="25" step="0.05">
+<label for="term">Loan term (years)</label><input id="term" type="number" value="30" min="1" max="40" step="1">
+<label for="tax">Property tax ($ per year)</label><input id="tax" type="number" value="4800" min="0" step="100">
+<label for="ins">Home insurance ($ per year)</label><input id="ins" type="number" value="1800" min="0" step="100">
+<label for="pmi">PMI ($ per month) <span class="hint">— 0 if your down payment is 20% or more</span></label><input id="pmi" type="number" value="0" min="0" step="10">
+<label for="hoa">HOA dues ($ per month)</label><input id="hoa" type="number" value="0" min="0" step="10">
+<label for="extra">Extra payment toward principal ($ per month)</label><input id="extra" type="number" value="0" min="0" step="10">
+<button class="btn btn-calc" onclick="calcMortgage()">Calculate</button>
+<p class="hint">No rate is pre-filled as a suggestion — the default 6.5% is only a starting point. Type the rate a lender actually quoted you.</p>
+</div>
+<div class="result" id="mt-result"><h3>Your monthly payment <span class="badge">Estimate</span></h3><p>Press Calculate to see your result.</p></div>
+</div>
+<div class="note"><p><b>Compare rates elsewhere:</b> <a href="https://www.bankrate.com/mortgages/mortgage-calculator/">Bankrate's mortgage calculator</a> — external tool, we earn nothing from this link yet.</p></div>
+<p class="disc">Planning tool only — not financial advice. Verify rates and tax figures with a professional.</p>
+</div></section>
+<section><div class="wrap"><h2>What PITI means, and why it matters</h2>
+<p>PITI stands for Principal, Interest, Taxes and Insurance — the four parts of most mortgage payments. Many calculators show only the first two, which makes a home look cheaper than it is. On a $400,000 home with 20% down at 6.5% over 30 years, principal and interest are about $2,023 a month. Add $400 a month of property tax and $150 of insurance and the real payment is about $2,573 — more than a quarter higher. If your down payment is under 20%, PMI adds more, and HOA dues can add several hundred dollars on top of that.</p>
+<p>The principal-and-interest part is worked out with the standard amortisation formula: the monthly payment is the loan amount times the monthly rate, divided by one minus the same rate compounded over the life of the loan. Early on, almost all of each payment is interest, because the balance is at its largest. As the balance falls, the interest part shrinks and the principal part grows. That is why the first five years of a 30-year mortgage barely move the balance — and why extra payments are so powerful early on. An extra $200 a month on that $320,000 loan cuts the payoff time from 360 months to about 281 and saves roughly $72,000 in interest.</p>
+<p>The tax and insurance numbers are the ones people guess worst. Property tax depends on where the home is — some US counties charge under 0.5% of the home's value a year, others over 2%. Insurance depends on the home, the area and your claims history. Both change over time, and your lender will re-check them every year through your escrow account, so the payment you are quoted today is not the payment you will have in five years. Treat this calculator's result as a planning number, then ask a lender for the real figures — and check whether the quoted rate is fixed for the whole term or only for the first few years.</p>
+</div></section><section><div class="wrap faq"><h2>Questions, answered</h2><details><summary>What is PITI?</summary><p>Principal + Interest + Taxes + Insurance — the four parts of a typical mortgage payment. This calculator shows all four, plus PMI and HOA.</p></details><details><summary>Do I need PMI?</summary><p>Usually yes if your down payment is under 20% of the home price. PMI protects the lender, not you, and it usually drops off once you own 20% of the home — ask your lender how.</p></details><details><summary>How do extra payments help?</summary><p>Extra payments go straight to the principal, which shrinks the balance that interest is charged on. Even $100–$200 a month can cut years off a 30-year loan and save tens of thousands in interest.</p></details><details><summary>Is this a loan offer?</summary><p>No. This is an estimate for the numbers you type in. A lender's offer depends on your credit, income, the property and the market on the day you apply.</p></details></div></section>
+<footer class="site"><div class="wrap">
+<p><a href="index.html">PennyMath</a> · Free calculators and printable money planners. Part of the same family as
+<a href="https://hanxianqing.github.io/">Merry Printables</a> and
+<a href="https://hanxianqing.github.io/localtools/">LocalTools</a> — every tool runs entirely in your browser; nothing you type leaves your device.</p>
+<p class="disc">Planning tool only — not financial advice. Verify rates and tax figures with a professional.</p>
+<p class="disc">PennyMath is a planning tool, not a bank, lender or adviser. Interest rates, tax rules and prices change — check the current figures with a professional before you act on them.</p>
+</div></footer>
+<script>
+function $(id){return document.getElementById(id)}
+function fmt(n){return '$'+Math.round(n).toLocaleString('en-US')}
+function fmt2(n){return '$'+Number(n).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2})}
+function num(id,def){var v=parseFloat($(id).value);return isFinite(v)?v:def}
+function bracketTax(income,std,brackets){var t=Math.max(0,income-std),tax=0,prev=0;
+ for(var i=0;i<brackets.length;i++){var lim=brackets[i][0],rate=brackets[i][1];
+  if(t<=prev)break;tax+=(Math.min(t,lim)-prev)*rate;prev=lim}return tax}
+var FED={single:[16100,[[12400,.10],[50400,.12],[105700,.22],[201775,.24],[256225,.32],[640600,.35],[Infinity,.37]]],
+ mfj:[32200,[[24800,.10],[100800,.12],[211400,.22],[403550,.24],[512450,.32],[768700,.35],[Infinity,.37]]],
+ hoh:[24150,[[17700,.10],[67450,.12],[105700,.22],[201775,.24],[256200,.32],[640600,.35],[Infinity,.37]]]};
+var STATE_TAX={CA:{single:[5540,[[10756,.01],[25499,.02],[40245,.04],[55866,.06],[70606,.08],[360659,.093],[432787,.103],[721314,.113],[Infinity,.123]]],
+ mfj:[11080,[[21512,.01],[50998,.02],[80490,.04],[111732,.06],[141212,.08],[721318,.093],[865574,.103],[1442628,.113],[Infinity,.123]]]},
+ NY:{single:[8500,[[8500,.04],[11700,.045],[13900,.0525],[21400,.055],[80650,.06],[215400,.0685],[1077550,.0965],[Infinity,.109]]],
+ mfj:[16050,[[17150,.04],[23600,.045],[27900,.0525],[43000,.055],[161550,.06],[323200,.0685],[2155350,.0965],[Infinity,.109]]]}};
+
+function pmt(loan,r,y){var i=r/100/12,n=y*12;if(i===0)return loan/n;return loan*i*Math.pow(1+i,n)/(Math.pow(1+i,n)-1)}
+function calcMortgage(){
+ var price=num('price',400000),down=num('down',80000),rate=num('rate',6.5),years=num('term',30),
+ tax=num('tax',4800),ins=num('ins',1800),pmi=num('pmi',0),hoa=num('hoa',0),extra=num('extra',0);
+ var loan=Math.max(0,price-down), pi=pmt(loan,rate,years),
+ taxM=tax/12, insM=ins/12, total=pi+taxM+insM+pmi+hoa;
+ var sim=simulate(loan,rate,pi+extra), months=sim[0], interest=sim[1],
+ payoff=new Date(); payoff.setMonth(payoff.getMonth()+months);
+ var payoffStr=payoff.toLocaleDateString('en-US',{month:'long',year:'numeric'});
+ var noExtra=simulate(loan,rate,pi);
+ $('mt-result').innerHTML='<h3>Your monthly payment <span class="badge">Estimate</span></h3>'+
+ '<div class="big">'+fmt2(total)+'<small> / month</small></div>'+
+ '<table><tr><th>Part</th><th class="num">Per month</th></tr>'+
+ '<tr><td>Principal &amp; interest</td><td class="num">'+fmt2(pi)+'</td></tr>'+
+ '<tr><td>Property tax</td><td class="num">'+fmt2(taxM)+'</td></tr>'+
+ '<tr><td>Home insurance</td><td class="num">'+fmt2(insM)+'</td></tr>'+
+ '<tr><td>PMI</td><td class="num">'+fmt2(pmi)+'</td></tr>'+
+ '<tr><td>HOA dues</td><td class="num">'+fmt2(hoa)+'</td></tr>'+
+ '<tr><td><b>Total (PITI)</b></td><td class="num"><b>'+fmt2(total)+'</b></td></tr></table>'+
+ '<p>Loan amount '+fmt(loan)+' · '+months+' months to pay off'+(extra>0?' with your extra '+fmt(extra)+'/month':'')+
+ ' · paid off around '+payoffStr+'.</p>'+
+ '<p>Total interest over the life of the loan: <b>'+fmt(interest)+'</b>'+
+ (extra>0?' (vs '+fmt(noExtra[1])+' with no extra payment — you save '+fmt(noExtra[1]-interest)+
+ ' and finish '+(noExtra[0]-months)+' months sooner)':'')+'.</p>'+
+ '<h3 style="margin-top:18px">Amortisation — year by year</h3>'+
+ '<div class="scrollbox"><table><tr><th>Year</th><th class="num">Interest paid</th><th class="num">Principal paid</th><th class="num">Balance left</th></tr>'+
+ yearTable(loan,rate,pi+extra)+'</table></div>'+
+ '<h3 style="margin-top:18px">Amortisation — month by month</h3>'+
+ '<div class="scrollbox"><table><tr><th>Month</th><th class="num">Payment</th><th class="num">Interest</th><th class="num">Principal</th><th class="num">Balance</th></tr>'+
+ monthTable(loan,rate,pi+extra)+'</table></div>';
+}
+function simulate(loan,rate,pay){
+ var i=rate/100/12,bal=loan,interest=0,months=0;
+ while(bal>0.005&&months<1200){var intr=bal*i,pr=Math.min(pay-intr,bal);if(pr<=0)return[Infinity,Infinity];bal-=pr;interest+=intr;months++}
+ return[months,interest];
+}
+function yearTable(loan,rate,pay){
+ var i=rate/100/12,bal=loan,out='';
+ for(var y=1;bal>0.005&&y<=40;y++){var yi=0,yp=0;
+  for(var m=0;m<12&&bal>0.005;m++){var intr=bal*i,pr=Math.min(pay-intr,bal);bal-=pr;yi+=intr;yp+=pr}
+  out+='<tr><td>Year '+y+'</td><td class="num">'+fmt(yi)+'</td><td class="num">'+fmt(yp)+'</td><td class="num">'+fmt(Math.max(bal,0))+'</td></tr>'}
+ return out;
+}
+function monthTable(loan,rate,pay){
+ var i=rate/100/12,bal=loan,out='',m=0;
+ while(bal>0.005&&m<1200){m++;var intr=bal*i,pr=Math.min(pay-intr,bal);bal-=pr;
+  out+='<tr><td>'+m+'</td><td class="num">'+fmt2(pay)+'</td><td class="num">'+fmt2(intr)+'</td><td class="num">'+fmt2(pr)+'</td><td class="num">'+fmt2(Math.max(bal,0))+'</td></tr>'}
+ return out;
+}
+calcMortgage();
+</script>
+</body></html>

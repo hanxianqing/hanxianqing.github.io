@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bingo Card Generator for Teachers — Free Printable Bingo Cards | ClassroomKit</title>
+<meta name="description" content="Make up to 30 unique printable bingo cards for your class, plus a caller sheet. Free, no sign-up, black-and-white friendly.">
+<link rel="canonical" href="https://hanxianqing.github.io/classroomkit/bingo-generator.html">
+<meta property="og:title" content="Bingo Card Generator for Teachers — Free Printable Bingo Cards | ClassroomKit">
+<meta property="og:description" content="Make up to 30 unique printable bingo cards for your class, plus a caller sheet. Free, no sign-up, black-and-white friendly.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hanxianqing.github.io/classroomkit/bingo-generator.html">
+<meta property="og:site_name" content="ClassroomKit">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/style.css">
+<script>
+function bingoWords(){
+  var raw=document.getElementById('bingo-words').value.split('\n');
+  var seen={},out=[];
+  raw.forEach(function(w){w=w.trim().toUpperCase();if(w&&!seen[w]){seen[w]=1;out.push(w);}});
+  return out;
+}
+function bingoGenerate(){
+  var words=bingoWords();
+  var msg=document.getElementById('bingo-msg');
+  var out=document.getElementById('output');
+  if(words.length<24){msg.textContent='Add at least 24 words or numbers — a 5×5 card needs 24 squares plus the FREE centre.';out.innerHTML='<div class="empty">Your cards will appear here.</div>';return;}
+  msg.textContent='';
+  var count=parseInt(document.getElementById('bingo-count').value,10);
+  var free=document.getElementById('bingo-free').checked;
+  var seenCards={},html='<div class="toolbar no-print"><button class="btn small" onclick="window.print()">Print all cards</button></div>';
+  var made=0,guard=0;
+  while(made<count&&guard<5000){
+    guard++;
+    var pool=words.slice();
+    for(var i=pool.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=pool[i];pool[i]=pool[j];pool[j]=t;}
+    var pick=pool.slice(0,24).sort().join('|');
+    if(seenCards[pick])continue;
+    seenCards[pick]=1;
+    var cells=pool.slice(0,24);made++;
+    html+='<div class="bingo-card"><h4>BINGO &middot; Card '+made+'</h4><div class="bingo-grid">';
+    var idx=0;
+    for(var r=0;r<5;r++)for(var c=0;c<5;c++){
+      if(free&&r===2&&c===2){html+='<div class="free">FREE</div>';}
+      else{html+='<div>'+cells[idx++]+'</div>';}
+    }
+    html+='</div></div>';
+  }
+  html+='<h3>Caller sheet</h3><p>Call the words in any order. Tick each one as you call it.</p><p>'+words.map(function(w){return '☐ '+w;}).join(' &nbsp;·&nbsp; ')+'</p>';
+  out.innerHTML=html;
+}
+</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How many cards can I make?", "acceptedAnswer": {"@type": "Answer", "text": "Up to 30 unique cards in one click. Every card is different \u2014 the generator checks each new card against the ones already made."}}, {"@type": "Question", "name": "Are the cards unique?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. No two cards in a set are the same. If you ask for more cards than your word list allows, the generator stops at the number it can make uniquely."}}, {"@type": "Question", "name": "Can I use numbers instead of words?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Type numbers one per line \u2014 for example multiplication answers or numbers 1\u201375 \u2014 and the cards use those instead."}}, {"@type": "Question", "name": "Can I print in black and white?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The cards are black on white with a plain grid, so they print cleanly on any printer."}}, {"@type": "Question", "name": "Do I need an account?", "acceptedAnswer": {"@type": "Answer", "text": "No. The generator runs entirely in your browser \u2014 nothing is uploaded and nothing is saved."}}]}</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+<a class="logo" href="index.html">Classroom<span>Kit</span></a>
+<nav class="main"><span class="nav-group"><span class="nav-label">Generators</span><a href="word-search-generator.html">Word Search</a><a href="bingo-generator.html">Bingo</a><a href="math-worksheet-generator.html">Math Worksheet</a><a href="crossword-maker.html">Crossword</a></span><span class="nav-group"><a class="pack-link" href="https://payhip.com/MerryPrintables">Games Pack $9</a></span></nav>
+</div></header>
+<main>
+<div class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> &rsaquo; <b>Bingo card generator for teachers</b></nav></div>
+<section class="hero hero-compact"><div class="wrap">
+<h1>Bingo card generator for teachers — <em>30 unique cards</em> in one click.</h1>
+<p class="lede">Paste vocabulary or numbers, print up to 30 unique 5×5 cards plus a caller sheet. Free, no sign-up.</p>
+<div class="chips"><span class="chip">Up to 30 unique cards</span><span class="chip">Caller sheet included</span><span class="chip">Black-and-white friendly</span></div>
+</div></section>
+<section><div class="wrap">
+<h2>How it works</h2>
+<ol class="steps"><li><b>Paste words or numbers (24+).</b> one per line — vocabulary, numbers or times-table answers.</li><li><b>Choose how many cards (1–30).</b> every card is unique.</li><li><b>Print cards + caller sheet.</b> cut the caller sheet into strips or read it aloud.</li></ol>
+<div class="workspace">
+<div class="panel"><label for="bingo-words">Your words or numbers — one per line (24 or more)</label>
+<textarea id="bingo-words" rows="8">APPLE
+BANANA
+ORANGE
+GRAPE
+LEMON
+MELON
+PEACH
+PEAR
+BREAD
+CHEESE
+MILK
+EGGS
+RICE
+PASTA
+PIZZA
+SOUP
+CAT
+DOG
+BIRD
+FISH
+LION
+BEAR
+FROG
+DUCK
+SUN
+MOON</textarea>
+<p class="help">The sample list above is food and animals — replace it with your vocabulary, numbers or times-table answers.</p>
+<label for="bingo-count">How many cards?</label>
+<select id="bingo-count"><option value="1">1 card</option><option value="5">5 cards</option><option value="10" selected>10 cards</option><option value="20">20 cards</option><option value="30">30 cards</option></select>
+<p style="margin-top:12px"><label style="display:flex;gap:8px;align-items:center;font-weight:600"><input type="checkbox" id="bingo-free" checked> FREE centre square</label></p>
+<p style="margin-top:14px"><button class="btn pine" onclick="bingoGenerate()">Generate cards</button></p>
+<p class="muted" id="bingo-msg"></p></div>
+<div><div class="output" id="output"><div class="empty">Your puzzle will appear here.</div></div>
+<aside class="rail-card no-print">
+<img src="assets/pack-cover.svg" alt="Classroom Games Mega Pack cover" loading="lazy" width="130" height="173">
+<h3 style="margin:0 0 4px">Classroom Games Mega Pack</h3>
+<p class="muted">45 pages &middot; instant download</p>
+<p><span class="price">$9</span></p>
+<p><a class="btn small" href="https://payhip.com/MerryPrintables">Buy — $9</a></p>
+</aside></div>
+</div>
+<h2>Use it in class</h2>
+<ul class="uses"><li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span><b>Vocabulary review bingo.</b> call the word, pupils mark the square — the whole class plays at once.</span></li><li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg><span><b>Multiplication bingo.</b> call a multiplication, pupils mark the answer.</span></li><li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg><span><b>End-of-week reward game.</b> ten minutes of bingo on a Friday afternoon.</span></li><li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg><span><b>Substitute plan.</b> a set of cards and a caller sheet any adult can run.</span></li></ul>
+<div class="cta-band no-print"><div class="cta-text">
+<h3>Don't want to type a list?</h3>
+<p>The Mega Pack includes 30 ready-made bingo cards + caller sheet + a blank-card template — no typing needed. $9 &rarr;</p></div>
+<img src="assets/preview-bingo.svg" alt="Classroom Games Mega Pack preview" loading="lazy" width="120" height="155">
+<p><a class="btn small" href="https://payhip.com/MerryPrintables">Buy the Games Pack — $9 &rarr;</a></p>
+</div>
+<h2>Questions</h2>
+<div class="faq">
+<details><summary>How many cards can I make?</summary><p>Up to 30 unique cards in one click. Every card is different — the generator checks each new card against the ones already made.</p></details>
+<details><summary>Are the cards unique?</summary><p>Yes. No two cards in a set are the same. If you ask for more cards than your word list allows, the generator stops at the number it can make uniquely.</p></details>
+<details><summary>Can I use numbers instead of words?</summary><p>Yes. Type numbers one per line — for example multiplication answers or numbers 1–75 — and the cards use those instead.</p></details>
+<details><summary>Can I print in black and white?</summary><p>Yes. The cards are black on white with a plain grid, so they print cleanly on any printer.</p></details>
+<details><summary>Do I need an account?</summary><p>No. The generator runs entirely in your browser — nothing is uploaded and nothing is saved.</p></details>
+</div>
+</div></section>
+<section class="related"><div class="wrap">
+<h2>Related generators</h2>
+<div class="grid"><article class="card"><div class="body">
+<div class="tool-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="13" height="13" rx="1.5"/><path d="M6 2v13M10.5 2v13M2 6.5h13M2 11h13"/><circle cx="17" cy="17" r="4.5"/><path d="M20.5 20.5 23 23"/></svg></div>
+<h3><a href="word-search-generator.html">Word Search Generator</a></h3>
+<p>Spelling lists &rarr; printable puzzle in 30 seconds.</p>
+<p><a href="word-search-generator.html">Open generator &rarr;</a></p>
+</div></article><article class="card"><div class="body">
+<div class="tool-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8"/><path d="M9 12l3 3M12 12l-3 3"/><path d="M17 11.5h-3M15.5 10v3"/></svg></div>
+<h3><a href="math-worksheet-generator.html">Math Worksheet Generator</a></h3>
+<p>Addition, subtraction, multiplication and division drills.</p>
+<p><a href="math-worksheet-generator.html">Open generator &rarr;</a></p>
+</div></article><article class="card"><div class="body">
+<div class="tool-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="6" height="6"/><rect x="9" y="3" width="6" height="6"/><rect x="15" y="3" width="6" height="6"/><rect x="9" y="9" width="6" height="6"/><rect x="9" y="15" width="6" height="6"/><rect x="15" y="15" width="6" height="6"/><rect x="3" y="15" width="6" height="6"/></svg></div>
+<h3><a href="crossword-maker.html">Crossword Maker</a></h3>
+<p>Word and clue pairs &rarr; a printable crossword.</p>
+<p><a href="crossword-maker.html">Open generator &rarr;</a></p>
+</div></article></div>
+</div></section>
+
+</main>
+<footer class="site"><div class="wrap">
+<div class="foot-grid">
+<div>
+<h3>ClassroomKit</h3>
+<p>ClassroomKit makes free, print-ready classroom generators. No sign-up, no watermark. Made by the same maker as Merry Printables.</p>
+<p>Sister sites: <a href="https://hanxianqing.github.io/">Merry Printables</a> — party games &amp; planners from the same maker · <a href="https://hanxianqing.github.io/localtools/">LocalTools</a> — free file tools that run on your device.</p>
+</div>
+<div>
+<h3>Generators</h3>
+<ul>
+<li><a href="word-search-generator.html">Word Search Generator</a></li>
+<li><a href="bingo-generator.html">Bingo Card Generator</a></li>
+<li><a href="math-worksheet-generator.html">Math Worksheet Generator</a></li>
+<li><a href="crossword-maker.html">Crossword Maker</a></li>
+</ul>
+</div>
+<div>
+<h3>Packs &amp; more</h3>
+<ul>
+<li><a href="https://payhip.com/MerryPrintables">Classroom Games Mega Pack — $9</a></li>
+<li><a href="https://payhip.com/MerryPrintables">Merry Printables store (Payhip)</a></li>
+<li><a href="https://hanxianqing.github.io/localtools/">LocalTools</a></li>
+</ul>
+</div>
+</div>
+<p class="foot-base">&copy; 2026 ClassroomKit &middot; All tools run in your browser — nothing is uploaded.</p>
+</div></footer>
+</body>
+</html>

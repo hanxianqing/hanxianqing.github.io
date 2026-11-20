@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Compound Interest Calculator — Free, No Sign-Up | PennyMath</title>
+<meta name="description" content="Free compound interest calculator: starting amount, monthly contributions, rate and years, with a year-by-year table. No sign-up.">
+<link rel="canonical" href="https://hanxianqing.github.io/pennymath/compound-interest-calculator.html">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/style.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Compound Interest Calculator \u2014 Free, No Sign-Up | PennyMath", "description": "Free compound interest calculator: starting amount, monthly contributions, rate and years, with a year-by-year table. No sign-up.", "url": "https://hanxianqing.github.io/pennymath/compound-interest-calculator.html", "isPartOf": {"@type": "WebSite", "name": "PennyMath", "url": "https://hanxianqing.github.io/pennymath"}}</script>
+</head><body>
+<header class="site"><div class="wrap"><a class="brand" href="index.html">Penny<b>Math</b></a>
+<nav class="main"><a href="index.html">Home</a><a href="compound-interest-calculator.html" aria-current="page">Compound Interest</a><a href="mortgage-calculator.html">Mortgage</a><a href="salary-calculator.html">Salary & Take-Home</a><a href="loan-payoff-calculator.html">Loan & Debt Payoff</a></nav></div></header>
+<div class="hero"><div class="wrap">
+<h1>Compound Interest Calculator <span class="badge">Estimate</span></h1>
+<p class="lede">See what regular saving adds up to — and how much of the final number is interest doing the work.</p></div></div>
+<section><div class="wrap"><div class="calc">
+<div class="panel">
+<label for="principal">Starting amount ($)</label><input id="principal" type="number" value="10000" min="0" step="100">
+<label for="monthly">Monthly contribution ($)</label><input id="monthly" type="number" value="500" min="0" step="10">
+<label for="rate">Annual interest rate (%)</label><input id="rate" type="number" value="7" min="0" max="30" step="0.1">
+<label for="years">Years</label><input id="years" type="number" value="10" min="1" max="50" step="1">
+<label for="freq">Compounding frequency</label>
+<select id="freq"><option value="12" selected>Monthly</option><option value="4">Quarterly</option><option value="1">Annually</option></select>
+<button class="btn btn-calc" onclick="calcCompound()">Calculate</button>
+<p class="hint">Contributions are assumed to be made at the end of each month. The rate is the annual rate you expect to earn, before tax and fees.</p>
+</div>
+<div class="result" id="ci-result"><h3>Your money in 10 years <span class="badge">Estimate</span></h3><p>Press Calculate to see your result.</p></div>
+</div>
+<div id="ci-chart" style="margin-top:18px"></div>
+<p class="disc">Planning tool only — not financial advice. Verify rates and tax figures with a professional.</p>
+</div></section>
+<section><div class="wrap"><h2>How compound interest works</h2>
+<p>Compound interest means you earn interest not only on the money you put in, but also on the interest you have already earned. In the first year the effect is small — almost invisible. Over ten or twenty years it becomes the largest part of the final balance, which is why starting early matters more than starting big.</p>
+<p>The maths is simple enough to check by hand. Each compounding period, the balance grows by the annual rate divided by the number of periods in the year, and your contribution is added. After <em>n</em> periods the starting amount has been multiplied by (1 + rate/periods)<sup>n</sup>, and each contribution has been growing for as many periods as have passed since it was made. The calculator does exactly that, year by year, and shows the year-by-year table so you can follow it.</p>
+<p>Three things change the result more than anything else: how much you put in each month, how long you leave it alone, and the rate. Of the three, time is the one people underestimate most. Saving $500 a month at 7% for 10 years gives you about $106,600. Keep going for another 10 years — same monthly amount, same rate — and you end up with about $348,000, because the interest earned in the second decade is larger than everything you contributed in the first. The rate matters too, but be careful with it: a calculator that lets you type 12% will happily show you a fortune, and no savings account pays 12%. Use a rate you can defend — a savings account pays far less than the stock market's long-run average, and the stock market's average comes with years when it falls.</p>
+<p>What this calculator leaves out: tax on the interest, fees, and inflation. The number it shows is in today's dollars only in the sense that it ignores price rises — $106,000 in ten years will buy less than $106,000 buys today. That is not a flaw in the maths, it is a reminder to think in real terms: the question is not how big the number gets, but what it will buy when you need it.</p>
+</div></section><section><div class="wrap faq"><h2>Questions, answered</h2><details><summary>What is compound interest, in one sentence?</summary><p>Interest earned on both your original money and the interest already earned — so the balance grows faster the longer you leave it alone.</p></details><details><summary>Does the calculator include tax?</summary><p>No. Interest is usually taxed, and the rate depends on where you live and how the money is held. The result here is before tax.</p></details><details><summary>What rate should I use?</summary><p>Use a rate you can defend. A savings account might pay 4–5% in 2026; the long-run stock market average is often quoted around 7% after inflation, but with big ups and downs along the way. Never use a rate a salesperson promised you.</p></details><details><summary>Are contributions made at the start or end of the month?</summary><p>At the end of each month. Contributions made at the start would earn slightly more; the difference is small over a few years.</p></details></div></section>
+<footer class="site"><div class="wrap">
+<p><a href="index.html">PennyMath</a> · Free calculators and printable money planners. Part of the same family as
+<a href="https://hanxianqing.github.io/">Merry Printables</a> and
+<a href="https://hanxianqing.github.io/localtools/">LocalTools</a> — every tool runs entirely in your browser; nothing you type leaves your device.</p>
+<p class="disc">Planning tool only — not financial advice. Verify rates and tax figures with a professional.</p>
+<p class="disc">PennyMath is a planning tool, not a bank, lender or adviser. Interest rates, tax rules and prices change — check the current figures with a professional before you act on them.</p>
+</div></footer>
+<script>
+function $(id){return document.getElementById(id)}
+function fmt(n){return '$'+Math.round(n).toLocaleString('en-US')}
+function fmt2(n){return '$'+Number(n).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2})}
+function num(id,def){var v=parseFloat($(id).value);return isFinite(v)?v:def}
+function bracketTax(income,std,brackets){var t=Math.max(0,income-std),tax=0,prev=0;
+ for(var i=0;i<brackets.length;i++){var lim=brackets[i][0],rate=brackets[i][1];
+  if(t<=prev)break;tax+=(Math.min(t,lim)-prev)*rate;prev=lim}return tax}
+var FED={single:[16100,[[12400,.10],[50400,.12],[105700,.22],[201775,.24],[256225,.32],[640600,.35],[Infinity,.37]]],
+ mfj:[32200,[[24800,.10],[100800,.12],[211400,.22],[403550,.24],[512450,.32],[768700,.35],[Infinity,.37]]],
+ hoh:[24150,[[17700,.10],[67450,.12],[105700,.22],[201775,.24],[256200,.32],[640600,.35],[Infinity,.37]]]};
+var STATE_TAX={CA:{single:[5540,[[10756,.01],[25499,.02],[40245,.04],[55866,.06],[70606,.08],[360659,.093],[432787,.103],[721314,.113],[Infinity,.123]]],
+ mfj:[11080,[[21512,.01],[50998,.02],[80490,.04],[111732,.06],[141212,.08],[721318,.093],[865574,.103],[1442628,.113],[Infinity,.123]]]},
+ NY:{single:[8500,[[8500,.04],[11700,.045],[13900,.0525],[21400,.055],[80650,.06],[215400,.0685],[1077550,.0965],[Infinity,.109]]],
+ mfj:[16050,[[17150,.04],[23600,.045],[27900,.0525],[43000,.055],[161550,.06],[323200,.0685],[2155350,.0965],[Infinity,.109]]]}};
+
+function calcCompound(){
+ var p=num('principal',10000),m=num('monthly',500),r=num('rate',7),y=num('years',10),
+ f=parseInt($('freq').value,10);
+ var n=f;
+ var factor=Math.pow(1+r/100/n,n*y);
+ var per=m*12/n, fv;
+ if(r===0){fv=p+m*12*y}else{fv=p*factor+per*(factor-1)/(r/100/n)}
+ var contrib=m*12*y, interest=fv-p-contrib;
+ $('ci-result').innerHTML='<h3>Your money in '+y+' years <span class="badge">Estimate</span></h3>'+
+ '<div class="big">'+fmt(fv)+'</div><p>Starting amount '+fmt(p)+' + contributions '+fmt(contrib)+
+ ' + interest earned '+fmt(interest)+'</p><table><tr><th>Year</th><th class="num">Balance</th><th class="num">Contributions</th><th class="num">Interest</th></tr>'+
+ yearRows(p,m,r,y,n)+'</table>';
+ drawChart(p,contrib,interest,fv);
+}
+function yearRows(p,m,r,y,n){
+ var out='',bal=p,cont=0,intr=0;
+ for(var yr=1;yr<=y;yr++){
+  var factor=Math.pow(1+r/100/n,n);
+  var per=m*12/n;
+  var nb=bal*factor+per*(factor-1)/(r/100/n||1);
+  if(r===0){nb=bal+m*12}
+  var yrCont=m*12, yrInt=nb-bal-yrCont;
+  bal=nb;cont+=yrCont;intr+=yrInt;
+  out+='<tr><td>Year '+yr+'</td><td class="num">'+fmt(bal)+'</td><td class="num">'+fmt(cont)+'</td><td class="num">'+fmt(intr)+'</td></tr>';
+ }
+ return out;
+}
+function drawChart(p,contrib,interest,fv){
+ var w=520,h=150,scale=w/fv;
+ var pw=p*scale,cw=contrib*scale,iw=interest*scale;
+ $('ci-chart').innerHTML='<svg viewBox="0 0 520 190" width="100%" role="img" aria-label="Breakdown chart">'+
+ '<text x="0" y="16" font-size="13" fill="#0E3B2E" font-weight="bold">What your '+fmt(fv)+' is made of</text>'+
+ '<rect x="0" y="30" width="'+Math.max(pw,2)+'" height="34" fill="#0E3B2E"/><text x="'+(pw+6)+'" y="52" font-size="13" fill="#22292a">Starting amount '+fmt(p)+'</text>'+
+ '<rect x="0" y="76" width="'+Math.max(cw,2)+'" height="34" fill="#D4A94E"/><text x="'+(cw+6)+'" y="98" font-size="13" fill="#22292a">Your contributions '+fmt(contrib)+'</text>'+
+ '<rect x="0" y="122" width="'+Math.max(iw,2)+'" height="34" fill="#5A8F7B"/><text x="'+(iw+6)+'" y="144" font-size="13" fill="#22292a">Interest earned '+fmt(interest)+'</text></svg>';
+}
+calcCompound();
+</script>
+</body></html>

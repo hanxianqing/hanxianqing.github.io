@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Salary & Take-Home Pay Calculator — Federal + 5 States | PennyMath</title>
+<meta name="description" content="Free salary calculator: gross pay to take-home pay with 2026 US federal tax and state tax for CA, NY, TX, FL and WA. No sign-up.">
+<link rel="canonical" href="https://hanxianqing.github.io/pennymath/salary-calculator.html">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/style.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Salary & Take-Home Pay Calculator \u2014 Federal + 5 States | PennyMath", "description": "Free salary calculator: gross pay to take-home pay with 2026 US federal tax and state tax for CA, NY, TX, FL and WA. No sign-up.", "url": "https://hanxianqing.github.io/pennymath/salary-calculator.html", "isPartOf": {"@type": "WebSite", "name": "PennyMath", "url": "https://hanxianqing.github.io/pennymath"}}</script>
+</head><body>
+<header class="site"><div class="wrap"><a class="brand" href="index.html">Penny<b>Math</b></a>
+<nav class="main"><a href="index.html">Home</a><a href="compound-interest-calculator.html">Compound Interest</a><a href="mortgage-calculator.html">Mortgage</a><a href="salary-calculator.html" aria-current="page">Salary & Take-Home</a><a href="loan-payoff-calculator.html">Loan & Debt Payoff</a></nav></div></header>
+<div class="hero"><div class="wrap">
+<h1>Salary &amp; Take-Home Pay Calculator <span class="badge">Estimate</span></h1>
+<p class="lede">Gross pay to take-home pay, with US federal tax and state tax for California, New York, Texas, Florida and Washington.</p></div></div>
+<section><div class="wrap"><div class="calc">
+<div class="panel">
+<label for="mode">I am paid by</label>
+<select id="mode" onchange="toggleMode()"><option value="salary" selected>Annual salary</option><option value="hourly">Hourly wage</option></select>
+<div id="salary-field"><label for="salary">Gross annual salary ($)</label><input id="salary" type="number" value="80000" min="0" step="1000"></div>
+<div id="hourly-fields" style="display:none">
+<label for="hourly">Hourly wage ($)</label><input id="hourly" type="number" value="25" min="0" step="0.5">
+<label for="hours">Hours per week</label><input id="hours" type="number" value="40" min="0" max="80" step="1">
+</div>
+<label for="filing">Filing status</label>
+<select id="filing"><option value="single" selected>Single</option><option value="mfj">Married filing jointly</option><option value="hoh">Head of household</option></select>
+<label for="state">State</label>
+<select id="state"><option value="CA" selected>California</option><option value="NY">New York</option><option value="TX">Texas</option><option value="FL">Florida</option><option value="WA">Washington</option></select>
+<label for="freq">Show take-home pay</label>
+<select id="freq"><option value="monthly" selected>Per month</option><option value="weekly">Per week</option><option value="biweekly">Every two weeks</option><option value="semimonthly">Twice a month</option><option value="annual">Per year</option></select>
+<button class="btn btn-calc" onclick="calcSalary()">Calculate</button>
+<p class="hint">Federal tax uses the 2026 brackets and standard deduction. State tax is a simplified estimate from each state's published brackets. Pre-tax deductions such as 401(k) and health insurance are not included.</p>
+</div>
+<div class="result" id="sl-result"><h3>Your estimated take-home pay <span class="badge">Estimate</span></h3><p>Press Calculate to see your result.</p></div>
+</div>
+<p class="disc">Planning tool only — not financial advice. Verify rates and tax figures with a professional.</p>
+</div></section>
+<section><div class="wrap"><h2>Where your paycheque goes</h2>
+<p>A salary is not what you take home. Before the money reaches your bank account, four things come out of it: federal income tax, state income tax (in most states), Social Security and Medicare. On an $80,000 salary for a single filer in California, those four take about $18,357 a year, leaving about $61,643 — roughly 77% of the salary. The same $80,000 in Texas leaves about $65,110, because Texas has no state income tax. The difference is the state line, and it is the part of the paycheque most people forget when they compare job offers in different states.</p>
+<p>Federal tax is worked out in brackets: the first slice of taxable income is taxed at 10%, the next at 12%, and so on up to 37%. Only the income inside each bracket is taxed at that bracket's rate — a common misunderstanding is that moving into a higher bracket taxes all of your income at the higher rate, which is not true. Before the brackets are applied, the standard deduction is subtracted: $16,100 for single filers in 2026, $32,200 for married couples filing jointly, $24,150 for heads of household. So on $80,000, a single filer's taxable income is $63,900, and the federal tax comes to $8,770.</p>
+<p>Social Security takes 6.2% of pay, but only up to the wage base — $184,500 in 2026 — so the most anyone pays is $11,439 a year. Medicare takes 1.45% of all pay, with an extra 0.9% on pay above $200,000 for single filers ($250,000 for married couples). State tax is where this calculator is deliberately simplified: California and New York both have many brackets and their own deductions, and this calculator uses their published brackets without the many credits and adjustments a real return would include. Treat the state line as a planning estimate, not a tax return. And remember what is missing entirely: 401(k) contributions, health insurance premiums, and any local or city tax — all of which come out of a real paycheque before it reaches you.</p>
+</div></section><section><div class="wrap faq"><h2>Questions, answered</h2><details><summary>Why is my take-home pay less than my salary?</summary><p>Federal tax, state tax, Social Security and Medicare are all withheld before the money reaches you. On a typical salary they take roughly a fifth to a quarter of gross pay.</p></details><details><summary>Does moving into a higher tax bracket tax all my income more?</summary><p>No. Only the income inside each bracket is taxed at that bracket's rate. A pay rise can never leave you with less take-home pay because of the brackets alone.</p></details><details><summary>Why only five states?</summary><p>Each state has its own tax rules. California and New York are the two with the most complex income tax; Texas, Florida and Washington have no state income tax, so the calculator shows no state-tax line for them. More states may be added later.</p></details><details><summary>What is not included?</summary><p>Pre-tax deductions such as 401(k) contributions and health insurance premiums, local or city taxes, and any state credits or adjustments. Your real paycheque will be lower than this estimate if you have those deductions.</p></details></div></section>
+<footer class="site"><div class="wrap">
+<p><a href="index.html">PennyMath</a> · Free calculators and printable money planners. Part of the same family as
+<a href="https://hanxianqing.github.io/">Merry Printables</a> and
+<a href="https://hanxianqing.github.io/localtools/">LocalTools</a> — every tool runs entirely in your browser; nothing you type leaves your device.</p>
+<p class="disc">Planning tool only — not financial advice. Verify rates and tax figures with a professional.</p>
+<p class="disc">PennyMath is a planning tool, not a bank, lender or adviser. Interest rates, tax rules and prices change — check the current figures with a professional before you act on them.</p>
+</div></footer>
+<script>
+function $(id){return document.getElementById(id)}
+function fmt(n){return '$'+Math.round(n).toLocaleString('en-US')}
+function fmt2(n){return '$'+Number(n).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2})}
+function num(id,def){var v=parseFloat($(id).value);return isFinite(v)?v:def}
+function bracketTax(income,std,brackets){var t=Math.max(0,income-std),tax=0,prev=0;
+ for(var i=0;i<brackets.length;i++){var lim=brackets[i][0],rate=brackets[i][1];
+  if(t<=prev)break;tax+=(Math.min(t,lim)-prev)*rate;prev=lim}return tax}
+var FED={single:[16100,[[12400,.10],[50400,.12],[105700,.22],[201775,.24],[256225,.32],[640600,.35],[Infinity,.37]]],
+ mfj:[32200,[[24800,.10],[100800,.12],[211400,.22],[403550,.24],[512450,.32],[768700,.35],[Infinity,.37]]],
+ hoh:[24150,[[17700,.10],[67450,.12],[105700,.22],[201775,.24],[256200,.32],[640600,.35],[Infinity,.37]]]};
+var STATE_TAX={CA:{single:[5540,[[10756,.01],[25499,.02],[40245,.04],[55866,.06],[70606,.08],[360659,.093],[432787,.103],[721314,.113],[Infinity,.123]]],
+ mfj:[11080,[[21512,.01],[50998,.02],[80490,.04],[111732,.06],[141212,.08],[721318,.093],[865574,.103],[1442628,.113],[Infinity,.123]]]},
+ NY:{single:[8500,[[8500,.04],[11700,.045],[13900,.0525],[21400,.055],[80650,.06],[215400,.0685],[1077550,.0965],[Infinity,.109]]],
+ mfj:[16050,[[17150,.04],[23600,.045],[27900,.0525],[43000,.055],[161550,.06],[323200,.0685],[2155350,.0965],[Infinity,.109]]]}};
+
+function calcSalary(){
+ var mode=$('mode').value, filing=$('filing').value, state=$('state').value,
+ freq=$('freq').value;
+ var gross;
+ if(mode==='hourly'){var h=num('hourly',25),hw=num('hours',40);gross=h*hw*52}
+ else{gross=num('salary',80000)}
+ var f=FED[filing], fed=bracketTax(gross,f[0],f[1]);
+ var st=0, stNote='';
+ if(state==='TX'||state==='FL'||state==='WA'){stNote=stateName(state)+' has no state income tax, so there is no state-tax line.'}
+ else{var s=STATE_TAX[state][filing]||STATE_TAX[state].single;st=bracketTax(gross,s[0],s[1])}
+ var ss=0.062*Math.min(gross,184500), med=0.0145*gross,
+ thresh=(filing==='mfj')?250000:200000;
+ if(gross>thresh)med+=0.009*(gross-thresh);
+ var net=gross-fed-st-ss-med;
+ var perYear=net, perMonth=net/12, perWeek=net/52, perPay=net;
+ var perLabel='per year';
+ if(freq==='weekly'){perPay=net/52;perLabel='per week'}
+ else if(freq==='biweekly'){perPay=net/26;perLabel='per two weeks'}
+ else if(freq==='semimonthly'){perPay=net/24;perLabel='per half-month'}
+ else if(freq==='monthly'){perPay=net/12;perLabel='per month'}
+ var stRow=stNote?'<tr><td>State tax ('+state+')</td><td class="num">$0</td></tr><tr><td colspan="2" style="font-size:13px">'+stNote+'</td></tr>'
+  :'<tr><td>State tax ('+state+')</td><td class="num">− '+fmt(st)+'</td></tr>';
+ $('sl-result').innerHTML='<h3>Your estimated take-home pay <span class="badge">Estimate</span></h3>'+
+ '<div class="big">'+fmt2(perPay)+'<small> '+perLabel+'</small></div>'+
+ '<p>Annual take-home pay '+fmt(net)+' ('+fmt2(net/12)+' per month).</p>'+
+ '<table><tr><th>Deduction</th><th class="num">Per year</th></tr>'+
+ '<tr><td>Gross pay</td><td class="num">'+fmt(gross)+'</td></tr>'+
+ '<tr><td>Federal income tax</td><td class="num">− '+fmt(fed)+'</td></tr>'+stRow+
+ '<tr><td>Social Security (6.2% to $184,500)</td><td class="num">− '+fmt(ss)+'</td></tr>'+
+ '<tr><td>Medicare (1.45%'+(gross>thresh?' + 0.9% over $'+thresh.toLocaleString():'')+')</td><td class="num">− '+fmt(med)+'</td></tr>'+
+ '<tr><td><b>Take-home pay</b></td><td class="num"><b>'+fmt(net)+'</b></td></tr></table>'+
+ '<p style="font-size:13px">Federal and state tax use the 2026 federal brackets and the standard deduction for '+
+ filingLabel(filing)+'. State tax is a simplified estimate from the state\'s published brackets. Your real paycheque also depends on pre-tax deductions (401(k), health insurance), which this calculator does not include.</p>';
+}
+function stateName(s){return {TX:'Texas',FL:'Florida',WA:'Washington'}[s]||s}
+function filingLabel(f){return {single:'single filers',mfj:'married filing jointly',hoh:'head of household'}[f]||f}
+function toggleMode(){var h=$('mode').value==='hourly';$('hourly-fields').style.display=h?'block':'none';$('salary-field').style.display=h?'none':'block'}
+calcSalary();
+</script>
+</body></html>

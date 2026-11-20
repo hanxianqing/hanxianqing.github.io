@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Loan & Debt Payoff Calculator — Snowball vs Avalanche | PennyMath</title>
+<meta name="description" content="Free debt payoff calculator: payoff date, total interest, and a snowball vs avalanche comparison for two debts. No sign-up.">
+<link rel="canonical" href="https://hanxianqing.github.io/pennymath/loan-payoff-calculator.html">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/style.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Loan & Debt Payoff Calculator \u2014 Snowball vs Avalanche | PennyMath", "description": "Free debt payoff calculator: payoff date, total interest, and a snowball vs avalanche comparison for two debts. No sign-up.", "url": "https://hanxianqing.github.io/pennymath/loan-payoff-calculator.html", "isPartOf": {"@type": "WebSite", "name": "PennyMath", "url": "https://hanxianqing.github.io/pennymath"}}</script>
+</head><body>
+<header class="site"><div class="wrap"><a class="brand" href="index.html">Penny<b>Math</b></a>
+<nav class="main"><a href="index.html">Home</a><a href="compound-interest-calculator.html">Compound Interest</a><a href="mortgage-calculator.html">Mortgage</a><a href="salary-calculator.html">Salary & Take-Home</a><a href="loan-payoff-calculator.html" aria-current="page">Loan & Debt Payoff</a></nav></div></header>
+<div class="hero"><div class="wrap">
+<h1>Loan &amp; Debt Payoff Calculator <span class="badge">Estimate</span></h1>
+<p class="lede">When you will be debt-free, how much interest you will pay, and whether snowball or avalanche wins for your two debts.</p></div></div>
+<section><div class="wrap"><div class="calc">
+<div class="panel">
+<label for="bal1">First debt — balance ($)</label><input id="bal1" type="number" value="10000" min="0" step="100">
+<label for="apr1">First debt — APR (%)</label><input id="apr1" type="number" value="20" min="0" max="40" step="0.1">
+<label for="pay1">First debt — monthly payment ($)</label><input id="pay1" type="number" value="300" min="0" step="10">
+<label for="extra">Extra payment per month ($) <span class="hint">— on top of the payment above</span></label><input id="extra" type="number" value="0" min="0" step="10">
+<label for="bal2">Second debt — balance ($) <span class="hint">— for the snowball vs avalanche comparison</span></label><input id="bal2" type="number" value="5000" min="0" step="100">
+<label for="apr2">Second debt — APR (%)</label><input id="apr2" type="number" value="18" min="0" max="40" step="0.1">
+<label for="pay2">Second debt — monthly payment ($)</label><input id="pay2" type="number" value="200" min="0" step="10">
+<button class="btn btn-calc" onclick="calcDebt()">Calculate</button>
+<p class="hint">The comparison assumes you keep paying the same total every month: when one debt is gone, its payment rolls into the other.</p>
+</div>
+<div class="result" id="db-result"><h3>Your payoff plan <span class="badge">Estimate</span></h3><p>Press Calculate to see your result.</p></div>
+</div>
+<div class="note"><p><b>Compare loan rates elsewhere:</b> <a href="https://www.bankrate.com/loans/personal-loans/personal-loan-calculator/">Bankrate's personal loan calculator</a> — external tool, we earn nothing from this link yet.</p></div>
+<p class="disc">Planning tool only — not financial advice. Verify rates and tax figures with a professional.</p>
+</div></section>
+<section><div class="wrap"><h2>Snowball vs avalanche — which one actually works?</h2>
+<p>There are two well-known ways to pay off several debts. The avalanche method attacks the debt with the highest interest rate first, because that is the debt costing you the most. The snowball method attacks the smallest balance first, because paying a debt off completely feels like progress — and feeling like you are making progress is what keeps people paying. On the numbers alone, avalanche always wins: it pays the least total interest. On a $10,000 debt at 20% and a $5,000 debt at 18%, avalanche saves a few hundred dollars over the life of both debts compared with snowball.</p>
+<p>But the numbers are not the whole story. The snowball method exists because the hardest part of paying off debt is not the maths, it is the months in the middle when nothing seems to change. Clearing the smallest debt first gives you a win early — one account closed, one payment freed up, one less thing to think about — and that win is often what keeps people going through the long stretch. Research on how people actually behave with debt has repeatedly found that focusing on small balances first keeps people paying longer, even though it costs more in interest. The honest answer is: avalanche is cheaper, snowball is easier to stick to, and the best method is the one you will still be following in a year.</p>
+<p>Whatever method you pick, two rules matter more than the method. First, keep paying the same total every month: when one debt is gone, roll its payment into the next debt instead of spending it. That is how the payoff accelerates — the same money, applied to fewer and fewer debts. Second, stop adding to the balances. A payoff plan that assumes no new charges falls apart the moment a new charge appears, and the calculator's date assumes the APR never changes and you never miss a payment. If your payment does not even cover the monthly interest, the balance grows instead of shrinking, and the calculator will tell you so — that is the moment to call the lender, not to pay less.</p>
+</div></section><section><div class="wrap faq"><h2>Questions, answered</h2><details><summary>What is the snowball method?</summary><p>Pay off the smallest balance first, whatever its interest rate. When it is gone, roll its payment into the next smallest. It costs slightly more interest, but the early wins help people stick with it.</p></details><details><summary>What is the avalanche method?</summary><p>Pay off the highest APR first, whatever its balance. It pays the least total interest, because the most expensive debt is attacked first.</p></details><details><summary>Why does my payment need to cover the interest?</summary><p>If the monthly payment is smaller than the interest charged that month, the balance grows even while you pay. The calculator warns you when that is the case — increase the payment or talk to the lender.</p></details><details><summary>What is not included?</summary><p>New charges, late fees, changes to the APR, and balance-transfer offers. The estimate assumes a fixed APR, no new charges and no missed payments.</p></details></div></section>
+<footer class="site"><div class="wrap">
+<p><a href="index.html">PennyMath</a> · Free calculators and printable money planners. Part of the same family as
+<a href="https://hanxianqing.github.io/">Merry Printables</a> and
+<a href="https://hanxianqing.github.io/localtools/">LocalTools</a> — every tool runs entirely in your browser; nothing you type leaves your device.</p>
+<p class="disc">Planning tool only — not financial advice. Verify rates and tax figures with a professional.</p>
+<p class="disc">PennyMath is a planning tool, not a bank, lender or adviser. Interest rates, tax rules and prices change — check the current figures with a professional before you act on them.</p>
+</div></footer>
+<script>
+function $(id){return document.getElementById(id)}
+function fmt(n){return '$'+Math.round(n).toLocaleString('en-US')}
+function fmt2(n){return '$'+Number(n).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2})}
+function num(id,def){var v=parseFloat($(id).value);return isFinite(v)?v:def}
+function bracketTax(income,std,brackets){var t=Math.max(0,income-std),tax=0,prev=0;
+ for(var i=0;i<brackets.length;i++){var lim=brackets[i][0],rate=brackets[i][1];
+  if(t<=prev)break;tax+=(Math.min(t,lim)-prev)*rate;prev=lim}return tax}
+var FED={single:[16100,[[12400,.10],[50400,.12],[105700,.22],[201775,.24],[256225,.32],[640600,.35],[Infinity,.37]]],
+ mfj:[32200,[[24800,.10],[100800,.12],[211400,.22],[403550,.24],[512450,.32],[768700,.35],[Infinity,.37]]],
+ hoh:[24150,[[17700,.10],[67450,.12],[105700,.22],[201775,.24],[256200,.32],[640600,.35],[Infinity,.37]]]};
+var STATE_TAX={CA:{single:[5540,[[10756,.01],[25499,.02],[40245,.04],[55866,.06],[70606,.08],[360659,.093],[432787,.103],[721314,.113],[Infinity,.123]]],
+ mfj:[11080,[[21512,.01],[50998,.02],[80490,.04],[111732,.06],[141212,.08],[721318,.093],[865574,.103],[1442628,.113],[Infinity,.123]]]},
+ NY:{single:[8500,[[8500,.04],[11700,.045],[13900,.0525],[21400,.055],[80650,.06],[215400,.0685],[1077550,.0965],[Infinity,.109]]],
+ mfj:[16050,[[17150,.04],[23600,.045],[27900,.0525],[43000,.055],[161550,.06],[323200,.0685],[2155350,.0965],[Infinity,.109]]]}};
+
+function payoffSim(bal,apr,pay){var r=apr/100/12,interest=0,months=0,b=bal;
+ while(b>0.005&&months<1200){var intr=b*r,pr=Math.min(pay-intr,b);if(pr<=0)return null;b-=pr;interest+=intr;months++}
+ return[months,interest]}
+function twoDebtSim(d1,d2,totalPay,order){
+ // order: 'snowball' pays smaller balance first, 'avalanche' pays higher APR first
+ var a={bal:d1[0],apr:d1[1],min:d1[2]}, b={bal:d2[0],apr:d2[1],min:d2[2]};
+ var first=(order==='snowball')?(a.bal<=b.bal?a:b):(a.apr>=b.apr?a:b);
+ var second=(first===a)?b:a;
+ var interest=0,months=0;
+ while((a.bal>0.005||b.bal>0.005)&&months<1200){
+  // pay minimums on both debts, then all remaining budget to the target debt
+  var rem=totalPay, pFirst=0, pSecond=0;
+  if(first.bal>0.005){pFirst=Math.min(first.min,rem);rem-=pFirst}
+  if(second.bal>0.005){pSecond=Math.min(second.min,rem);rem-=pSecond}
+  if(first.bal>0.005&&rem>0){pFirst+=rem;rem=0}
+  if(second.bal>0.005&&rem>0){pSecond+=rem;rem=0}
+  var pa=(first===a)?pFirst:pSecond, pb=(first===a)?pSecond:pFirst;
+  if(a.bal>0.005){var ia=a.bal*a.apr/100/12;interest+=ia;var pra=Math.min(pa-ia,a.bal);if(pra<0)return null;a.bal-=pra}
+  if(b.bal>0.005){var ib=b.bal*b.apr/100/12;interest+=ib;var prb=Math.min(pb-ib,b.bal);if(prb<0)return null;b.bal-=prb}
+  months++;
+ }
+ return[months,interest];
+}
+function calcDebt(){
+ var b1=num('bal1',10000),a1=num('apr1',20),p1=num('pay1',300),ex=num('extra',0),
+ b2=num('bal2',5000),a2=num('apr2',18),p2=num('pay2',200);
+ var one=payoffSim(b1,a1,p1+ex);
+ if(!one){$('db-result').innerHTML='<h3>Your payoff plan <span class="badge">Estimate</span></h3><p>Your payment of '+fmt(p1+ex)+' per month does not cover the interest on the first debt ('+fmt(b1*(a1/100/12))+' per month). Increase the payment, or the balance will keep growing.</p>';return}
+ var months=one[0],interest=one[1],payoff=new Date();payoff.setMonth(payoff.getMonth()+months);
+ var payoffStr=payoff.toLocaleDateString('en-US',{month:'long',year:'numeric'});
+ var totalPay=p1+p2+ex;
+ var snow=twoDebtSim([b1,a1,p1],[b2,a2,p2],totalPay,'snowball');
+ var aval=twoDebtSim([b1,a1,p1],[b2,a2,p2],totalPay,'avalanche');
+ var cmp='';
+ if(snow&&aval){
+  cmp='<h3 style="margin-top:18px">Snowball vs avalanche — both debts together</h3>'+
+  '<table><tr><th>Method</th><th class="num">Months</th><th class="num">Total interest</th></tr>'+
+  '<tr><td>Snowball — smaller balance first</td><td class="num">'+snow[0]+'</td><td class="num">'+fmt(snow[1])+'</td></tr>'+
+  '<tr><td>Avalanche — highest APR first</td><td class="num">'+aval[0]+'</td><td class="num">'+fmt(aval[1])+'</td></tr></table>'+
+  '<p>'+(aval[1]<snow[1]?'Avalanche saves '+fmt(snow[1]-aval[1])+' in interest here.':'Snowball costs '+fmt(snow[1]-aval[1])+' more in interest here, but many people stick with it longer because the first debt disappears sooner.')+' Either way, keep paying the same total every month — when one debt is gone, its payment rolls into the other.</p>';
+ }
+ $('db-result').innerHTML='<h3>Your payoff plan <span class="badge">Estimate</span></h3>'+
+ '<div class="big">'+months+' months</div><p>Debt-free around <b>'+payoffStr+'</b> if you pay '+fmt(p1+ex)+
+ ' per month and make no new charges.</p>'+
+ '<table><tr><th></th><th class="num">Amount</th></tr>'+
+ '<tr><td>Starting balance</td><td class="num">'+fmt(b1)+'</td></tr>'+
+ '<tr><td>Total interest you will pay</td><td class="num">'+fmt(interest)+'</td></tr>'+
+ '<tr><td>Total you will pay</td><td class="num">'+fmt(b1+interest)+'</td></tr></table>'+cmp+
+ '<p style="font-size:13px">Estimates only — they assume the APR never changes and you make no new charges. Your lender\'s figures are the real ones.</p>';
+}
+calcDebt();
+</script>
+</body></html>

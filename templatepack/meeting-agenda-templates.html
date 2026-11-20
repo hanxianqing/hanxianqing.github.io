@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meeting Agenda Templates — Free Copy-Paste Agendas | TemplatePack</title>
+<meta name="description" content="Six free copy-paste meeting agenda templates: team weekly, 1:1, project kickoff, board, client and standup. No sign-up.">
+<link rel="canonical" href="https://hanxianqing.github.io/templatepack/meeting-agenda-templates.html">
+<meta property="og:title" content="Meeting Agenda Templates — Free Copy-Paste Agendas | TemplatePack">
+<meta property="og:description" content="Six free copy-paste meeting agenda templates: team weekly, 1:1, project kickoff, board, client and standup. No sign-up.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hanxianqing.github.io/templatepack/meeting-agenda-templates.html">
+<meta property="og:site_name" content="TemplatePack">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/style.css">
+<script>
+function copyTpl(btn, id){
+  var el=document.getElementById(id);
+  var text=el.innerText;
+  function done(){
+    var old=btn.innerHTML; btn.innerHTML='Copied ✓'; btn.setAttribute('aria-live','polite');
+    setTimeout(function(){btn.innerHTML=old;},2000);
+  }
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(done).catch(function(){fallback();});
+  } else { fallback(); }
+  function fallback(){
+    var ta=document.createElement('textarea'); ta.value=text; document.body.appendChild(ta);
+    ta.select(); try{document.execCommand('copy');}catch(e){} document.body.removeChild(ta); done();
+  }
+}
+function copyChecklist(btn, id){
+  var el=document.getElementById(id);
+  var text=el.innerText;
+  function done(){
+    var old=btn.innerHTML; btn.innerHTML='Copied ✓';
+    setTimeout(function(){btn.innerHTML=old;},2000);
+  }
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(done).catch(function(){fallback();});
+  } else { fallback(); }
+  function fallback(){
+    var ta=document.createElement('textarea'); ta.value=text; document.body.appendChild(ta);
+    ta.select(); try{document.execCommand('copy');}catch(e){} document.body.removeChild(ta); done();
+  }
+}
+function printTpl(id){
+  var cards=document.querySelectorAll('.tpl-card, .check-card');
+  cards.forEach(function(c){ if(c.id!==id) c.classList.add('print-hidden'); });
+  window.print();
+}
+window.addEventListener('afterprint', function(){
+  document.querySelectorAll('.print-hidden').forEach(function(c){ c.classList.remove('print-hidden'); });
+});
+</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can I use these agendas at work?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Every agenda on this site is free to copy and use at work, as often as you like."}}, {"@type": "Question", "name": "Do I need to credit you?", "acceptedAnswer": {"@type": "Answer", "text": "No. Copy the agenda, fill in your names, dates and topics, and send it as your own."}}, {"@type": "Question", "name": "Can I edit them?", "acceptedAnswer": {"@type": "Answer", "text": "Yes \u2014 that is the point. Replace the [bracketed] placeholders with your own topics, times and people."}}, {"@type": "Question", "name": "What format is the Pro Pack?", "acceptedAnswer": {"@type": "Answer", "text": "The Pro Pack has all 60 templates as Word, Excel and PDF files, including 10 meeting templates \u2014 the 6 agendas on this page plus a retrospective, a standup, meeting minutes and a decision log."}}, {"@type": "Question", "name": "Is there a meeting minutes template?", "acceptedAnswer": {"@type": "Answer", "text": "Not as a free page \u2014 the minutes template (standard version plus an action-item tracker) is in the Pro Pack. The agendas on this page are free; the minutes are part of the paid set."}}]}</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+<a class="logo" href="index.html">Template<span>Pack</span></a>
+<nav class="main"><span class="nav-group"><span class="nav-label">Templates</span><a href="meeting-agenda-templates.html">Meeting Agendas</a><a href="follow-up-email-templates.html">Follow-Up Emails</a><a href="business-email-templates.html">Business Emails</a><a href="checklists.html">Checklists</a></span><span class="nav-group"><a class="pack-link" href="https://payhip.com/MerryPrintables">Pro Pack $12</a></span></nav>
+</div></header>
+<main>
+<div class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> &rsaquo; <b>Meeting agenda templates</b></nav></div>
+<section class="hero"><div class="wrap">
+<h1>Meeting agenda templates — <em>copy, paste, run the meeting</em>.</h1>
+<p class="lede">Six agendas you can copy in one click — team weekly, 1:1, project kickoff, board, client and standup. Free, no sign-up.</p>
+<div class="chips"><span class="chip">6 agendas</span><span class="chip">One-click copy</span><span class="chip">No sign-up</span><span class="chip">Works in any email or doc</span></div>
+</div></section>
+<section><div class="wrap">
+<h2>How to use</h2>
+<ol class="steps"><li><b>Copy the agenda.</b> click Copy on the agenda you need.</li><li><b>Replace the [brackets].</b> with your names, dates and topics.</li><li><b>Send it before the meeting.</b> the day before is best.</li></ol>
+
+<article class="tpl-card" id="tpl-team-weekly-agenda">
+<div class="tpl-head"><div>
+<h3>Team Weekly Meeting Agenda</h3>
+<p class="use-when">Use this when: the regular Monday team meeting</p>
+</div>
+<button class="btn copy" onclick="copyTpl(this, 'tpl-team-weekly-agenda-body')" aria-label="Copy Team Weekly Meeting Agenda">Copy</button>
+</div>
+<div class="tpl-body" id="tpl-team-weekly-agenda-body"><p><b>Welcome and quick wins (5 min)</b><br>Each person shares one win from last week.</p><p><b>Progress updates (15 min)</b><br>Each person: what they finished, what they are working on, what is blocked.</p><p><b>Decisions needed (10 min)</b><br><b class="ph">[Decision 1]</b> — who decides, by when. <b class="ph">[Decision 2]</b>.</p><p><b>Risks and blockers (10 min)</b><br>What is stuck, who can unblock it, and by when.</p><p><b>Next week (5 min)</b><br>Top three priorities for next week. Owner for each.</p><p><b>Any other business (5 min)</b><br>Anything not covered above.</p></div>
+<div class="tpl-foot"><button onclick="printTpl('tpl-team-weekly-agenda')">Print this template</button></div>
+</article>
+<article class="tpl-card" id="tpl-one-to-one-agenda">
+<div class="tpl-head"><div>
+<h3>One-to-One Meeting Agenda</h3>
+<p class="use-when">Use this when: your regular 1:1 with a team member</p>
+</div>
+<button class="btn copy" onclick="copyTpl(this, 'tpl-one-to-one-agenda-body')" aria-label="Copy One-to-One Meeting Agenda">Copy</button>
+</div>
+<div class="tpl-body" id="tpl-one-to-one-agenda-body"><p><b>Check-in (5 min)</b><br>How are things? Workload, energy, anything on your mind.</p><p><b>Progress since last time (10 min)</b><br>What moved forward, what stalled, and why.</p><p><b>Feedback (10 min)</b><br>One thing that went well, one thing to improve — both directions.</p><p><b>Goals and development (10 min)</b><br>Progress on goals, training, or the next step in your role.</p><p><b>Support needed (5 min)</b><br>What do you need from me this week?</p><p><b>Actions</b><br>Write down who does what by when before you finish.</p></div>
+<div class="tpl-foot"><button onclick="printTpl('tpl-one-to-one-agenda')">Print this template</button></div>
+</article>
+<article class="tpl-card" id="tpl-project-kickoff-agenda">
+<div class="tpl-head"><div>
+<h3>Project Kickoff Meeting Agenda</h3>
+<p class="use-when">Use this when: the first meeting of a new project</p>
+</div>
+<button class="btn copy" onclick="copyTpl(this, 'tpl-project-kickoff-agenda-body')" aria-label="Copy Project Kickoff Meeting Agenda">Copy</button>
+</div>
+<div class="tpl-body" id="tpl-project-kickoff-agenda-body"><p><b>Welcome and introductions (10 min)</b><br>Who is in the room, and what is each person's role on this project.</p><p><b>The goal (10 min)</b><br>What success looks like, in one sentence. How we will know we got there.</p><p><b>Scope — what is in, what is out (15 min)</b><br>List the deliverables. List what we are explicitly not doing.</p><p><b>Timeline and milestones (10 min)</b><br>Key dates: <b class="ph">[milestone 1 — date]</b>, <b class="ph">[milestone 2 — date]</b>, <b class="ph">[launch — date]</b>.</p><p><b>Risks and assumptions (10 min)</b><br>What could go wrong, and what we are assuming to be true.</p><p><b>Ways of working (5 min)</b><br>How often we meet, where the files live, who decides what.</p><p><b>Next steps</b><br>Owner and date for every action agreed today.</p></div>
+<div class="tpl-foot"><button onclick="printTpl('tpl-project-kickoff-agenda')">Print this template</button></div>
+</article>
+<article class="tpl-card" id="tpl-board-agenda">
+<div class="tpl-head"><div>
+<h3>Board Meeting Agenda</h3>
+<p class="use-when">Use this when: a formal board meeting</p>
+</div>
+<button class="btn copy" onclick="copyTpl(this, 'tpl-board-agenda-body')" aria-label="Copy Board Meeting Agenda">Copy</button>
+</div>
+<div class="tpl-body" id="tpl-board-agenda-body"><p><b>Call to order and apologies (5 min)</b><br>Chair opens the meeting. Record who is present and who sent apologies.</p><p><b>Minutes of the last meeting (5 min)</b><br>Approve the minutes. Note any matters arising.</p><p><b>Chief executive's report (15 min)</b><br>Performance since the last meeting, against plan.</p><p><b>Finance report (15 min)</b><br>Current position, forecast, and any spending that needs approval.</p><p><b>Decisions (20 min)</b><br><b class="ph">[Decision 1 — paper attached]</b>. <b class="ph">[Decision 2 — paper attached]</b>.</p><p><b>Risk and compliance (10 min)</b><br>New risks, regulatory changes, anything the board must note.</p><p><b>Any other business (5 min)</b><br>Items raised in advance only.</p><p><b>Date of next meeting</b><br>Confirm the date and close the meeting.</p></div>
+<div class="tpl-foot"><button onclick="printTpl('tpl-board-agenda')">Print this template</button></div>
+</article>
+<article class="tpl-card" id="tpl-client-meeting-agenda">
+<div class="tpl-head"><div>
+<h3>Client Meeting Agenda</h3>
+<p class="use-when">Use this when: a meeting with a client</p>
+</div>
+<button class="btn copy" onclick="copyTpl(this, 'tpl-client-meeting-agenda-body')" aria-label="Copy Client Meeting Agenda">Copy</button>
+</div>
+<div class="tpl-body" id="tpl-client-meeting-agenda-body"><p><b>Welcome and introductions (5 min)</b><br>Thank the client for their time. Confirm what we want from the meeting.</p><p><b>Progress since last time (10 min)</b><br>What we delivered, what the client delivered, what is outstanding.</p><p><b>Current work (15 min)</b><br>Where each open item stands, and what happens next.</p><p><b>Decisions needed from the client (10 min)</b><br><b class="ph">[Decision 1]</b>. <b class="ph">[Decision 2]</b>. Be specific about what you need.</p><p><b>Feedback (5 min)</b><br>Ask how the work is going from the client's side.</p><p><b>Next steps (5 min)</b><br>Who does what, by when. Confirm the date of the next meeting.</p></div>
+<div class="tpl-foot"><button onclick="printTpl('tpl-client-meeting-agenda')">Print this template</button></div>
+</article>
+<article class="tpl-card" id="tpl-standup-agenda">
+<div class="tpl-head"><div>
+<h3>Daily Standup Agenda</h3>
+<p class="use-when">Use this when: the daily 15-minute standup</p>
+</div>
+<button class="btn copy" onclick="copyTpl(this, 'tpl-standup-agenda-body')" aria-label="Copy Daily Standup Agenda">Copy</button>
+</div>
+<div class="tpl-body" id="tpl-standup-agenda-body"><p><b>What did you do yesterday?</b><br>One or two sentences each. No detail — save it for after the standup.</p><p><b>What will you do today?</b><br>The one or two things that matter today.</p><p><b>Is anything blocking you?</b><br>Name the blocker and who can help. Discuss it after the standup, not during it.</p><p><b>Announcements (1 min)</b><br>Anything the whole team needs to know today.</p></div>
+<div class="tpl-foot"><button onclick="printTpl('tpl-standup-agenda')">Print this template</button></div>
+</article>
+<div class="tips no-print"><h3>Good to know</h3><ul><li>Send the agenda the day before, not the morning of the meeting.</li><li>Put the decision you need in the subject line or at the top of the agenda.</li><li>Keep it to five topics — more than that and the meeting runs over.</li><li>Attach the minutes template afterwards — the standard minutes template and action-item tracker are in the Pro Pack.</li></ul></div>
+<div class="cta-band no-print"><div class="cta-text">
+<h3>Want them all as files?</h3>
+<p>Want all 60 templates as Word &amp; Excel files — including 10 meeting agendas and minutes? Get the Pro Pack — $12 &rarr;</p></div>
+<p><a class="btn small" href="https://payhip.com/MerryPrintables">Get the Pro Pack — $12 &rarr;</a></p>
+</div>
+<h2>Questions</h2>
+<div class="faq">
+<details><summary>Can I use these agendas at work?</summary><p>Yes. Every agenda on this site is free to copy and use at work, as often as you like.</p></details>
+<details><summary>Do I need to credit you?</summary><p>No. Copy the agenda, fill in your names, dates and topics, and send it as your own.</p></details>
+<details><summary>Can I edit them?</summary><p>Yes — that is the point. Replace the [bracketed] placeholders with your own topics, times and people.</p></details>
+<details><summary>What format is the Pro Pack?</summary><p>The Pro Pack has all 60 templates as Word, Excel and PDF files, including 10 meeting templates — the 6 agendas on this page plus a retrospective, a standup, meeting minutes and a decision log.</p></details>
+<details><summary>Is there a meeting minutes template?</summary><p>Not as a free page — the minutes template (standard version plus an action-item tracker) is in the Pro Pack. The agendas on this page are free; the minutes are part of the paid set.</p></details>
+</div>
+</div></section>
+<section class="related"><div class="wrap">
+<h2>Related templates</h2>
+<div class="grid"><article class="card"><div class="body">
+<img class="cat-ic" src="assets/icon-email.svg" alt="" width="52" height="52" loading="lazy">
+<h3><a href="follow-up-email-templates.html">Follow-Up Email Templates</a></h3>
+<p>Six follow-ups for the emails you write every week.</p>
+<p><a href="follow-up-email-templates.html">Browse templates &rarr;</a></p>
+</div></article><article class="card"><div class="body">
+<img class="cat-ic" src="assets/icon-email.svg" alt="" width="52" height="52" loading="lazy">
+<h3><a href="business-email-templates.html">Business Email Templates</a></h3>
+<p>Payment reminders, out-of-office, resignation and more.</p>
+<p><a href="business-email-templates.html">Browse templates &rarr;</a></p>
+</div></article><article class="card"><div class="body">
+<img class="cat-ic" src="assets/icon-checklist.svg" alt="" width="52" height="52" loading="lazy">
+<h3><a href="checklists.html">Checklists</a></h3>
+<p>Employee and client onboarding, ready to tick off.</p>
+<p><a href="checklists.html">Browse templates &rarr;</a></p>
+</div></article></div>
+</div></section>
+
+</main>
+<footer class="site"><div class="wrap">
+<div class="foot-grid">
+<div>
+<h3>TemplatePack</h3>
+<p>TemplatePack is a free, copy-paste template library. No sign-up, no email gate. Made by the same maker as Merry Printables.</p>
+<p>Sister sites: <a href="https://hanxianqing.github.io/">Merry Printables</a> — party games &amp; planners from the same maker · <a href="https://hanxianqing.github.io/localtools/">LocalTools</a> — free file tools that run on your device.</p>
+</div>
+<div>
+<h3>Templates</h3>
+<ul>
+<li><a href="meeting-agenda-templates.html">Meeting Agenda Templates</a></li>
+<li><a href="follow-up-email-templates.html">Follow-Up Email Templates</a></li>
+<li><a href="business-email-templates.html">Business Email Templates</a></li>
+<li><a href="checklists.html">Checklists</a></li>
+</ul>
+</div>
+<div>
+<h3>Packs &amp; more</h3>
+<ul>
+<li><a href="https://payhip.com/MerryPrintables">Business Templates Pro Pack — $12</a></li>
+<li><a href="https://payhip.com/MerryPrintables">Merry Printables store (Payhip)</a></li>
+<li><a href="https://hanxianqing.github.io/localtools/">LocalTools</a></li>
+</ul>
+</div>
+</div>
+<p class="foot-base">&copy; 2026 TemplatePack &middot; Templates are wording suggestions, not legal advice.</p>
+</div></footer>
+</body>
+</html>

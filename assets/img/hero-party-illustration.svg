@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500" role="img" >
+
+<rect width="800" height="500" fill="#FFF6DC"/>
+<circle cx="400" cy="250" r="190" fill="#F8EFC9"/>
+<path d="M40 60 Q120 110 200 60 Q280 110 360 60 Q440 110 520 60 Q600 110 680 60 Q740 100 770 60" fill="none" stroke="#D4A94E" stroke-width="3"/>
+<path d="M104 86 L136 86 L120 120 Z" fill="#C0392B"/><path d="M184 86 L216 86 L200 120 Z" fill="#0E3B2E"/><path d="M264 86 L296 86 L280 120 Z" fill="#D4A94E"/><path d="M344 86 L376 86 L360 120 Z" fill="#C0392B"/><path d="M424 86 L456 86 L440 120 Z" fill="#0E3B2E"/><path d="M504 86 L536 86 L520 120 Z" fill="#D4A94E"/><path d="M584 86 L616 86 L600 120 Z" fill="#C0392B"/><path d="M664 86 L696 86 L680 120 Z" fill="#0E3B2E"/>
+<g><rect x="180" y="300" width="130" height="110" rx="8" fill="#C0392B"/><rect x="180" y="300" width="130" height="22" fill="#D4A94E"/><rect x="238" y="300" width="14" height="110" fill="#D4A94E"/><path d="M245 300c-22-26-52-6-34 12 10 10 34 2 34-12zM245 300c22-26 52-6 34 12-10 10-34 2-34-12z" fill="#D4A94E"/></g>
+<g><rect x="470" y="320" width="110" height="90" rx="8" fill="#0E3B2E"/><rect x="470" y="320" width="110" height="18" fill="#D4A94E"/><rect x="518" y="320" width="14" height="90" fill="#D4A94E"/></g>
+<g><circle cx="620" cy="180" r="52" fill="#C0392B"/><path d="M620 232 L620 300" stroke="#0E3B2E" stroke-width="3"/><path d="M620 128 q-14-22 4-34 q10 14-4 34z" fill="#D4A94E"/></g>
+<g><circle cx="150" cy="190" r="44" fill="#D4A94E"/><path d="M150 234 L150 300" stroke="#0E3B2E" stroke-width="3"/></g>
+<g fill="#D4A94E"><circle cx="340" cy="170" r="5"/><circle cx="430" cy="150" r="5"/><circle cx="520" cy="200" r="5"/><circle cx="260" cy="210" r="5"/><circle cx="700" cy="300" r="5"/><circle cx="90" cy="300" r="5"/></g>
+<g fill="#C0392B"><circle cx="380" cy="200" r="4"/><circle cx="480" cy="250" r="4"/><circle cx="300" cy="280" r="4"/></g>
+<text x="400" y="470" text-anchor="middle" font-family="Georgia,'Times New Roman',Times,serif" font-weight="700" font-size="26" fill="#0E3B2E">Print at home · Play tonight</text>
+</svg>

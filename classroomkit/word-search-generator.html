@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Free Word Search Generator — Make a Printable Word Search | ClassroomKit</title>
+<meta name="description" content="Make a free printable word search from your own words. Choose the grid size and difficulty, print with an answer key. No sign-up.">
+<link rel="canonical" href="https://hanxianqing.github.io/classroomkit/word-search-generator.html">
+<meta property="og:title" content="Free Word Search Generator — Make a Printable Word Search | ClassroomKit">
+<meta property="og:description" content="Make a free printable word search from your own words. Choose the grid size and difficulty, print with an answer key. No sign-up.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hanxianqing.github.io/classroomkit/word-search-generator.html">
+<meta property="og:site_name" content="ClassroomKit">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/style.css">
+<script>
+function wsWords(){
+  var raw=document.getElementById('ws-words').value.toUpperCase().replace(/[^A-Z\n]/g,'').split('\n');
+  var seen={},out=[];
+  raw.forEach(function(w){w=w.trim();if(w.length>=2&&w.length<=15&&!seen[w]){seen[w]=1;out.push(w);}});
+  return out;
+}
+function wsGenerate(){
+  var words=wsWords();
+  var msg=document.getElementById('ws-msg');
+  var out=document.getElementById('output');
+  if(words.length<3){msg.textContent='Add at least 3 words (2–15 letters each).';out.innerHTML='<div class="empty">Your puzzle will appear here.</div>';return;}
+  if(words.length>20){words=words.slice(0,20);msg.textContent='Using the first 20 words.';}else{msg.textContent='';}
+  var size=parseInt(document.getElementById('ws-size').value,10);
+  var diff=document.getElementById('ws-diff').value;
+  var dirs=[[1,0],[0,1]];
+  if(diff!=='easy'){dirs.push([1,1]);}
+  if(diff==='hard'){dirs.push([-1,0],[0,-1],[-1,-1],[1,-1],[-1,1]);}
+  var placed={},unplaced=[];
+  for(var attempt=0;attempt<200;attempt++){
+    var grid=[],i,j;
+    for(i=0;i<size;i++){grid.push(new Array(size).fill(''));}
+    placed={};unplaced=[];
+    var ok=true;
+    var sorted=words.slice().sort(function(a,b){return b.length-a.length;});
+    for(var wi=0;wi<sorted.length;wi++){
+      var w=sorted[wi],done=false;
+      for(var t=0;t<300;t++){
+        var d=dirs[Math.floor(Math.random()*dirs.length)];
+        var x=Math.floor(Math.random()*size),y=Math.floor(Math.random()*size);
+        var ex=x+d[0]*(w.length-1),ey=y+d[1]*(w.length-1);
+        if(ex<0||ex>=size||ey<0||ey>=size)continue;
+        var fits=true,cells=[];
+        for(var k=0;k<w.length;k++){var cx=x+d[0]*k,cy=y+d[1]*k;cells.push([cx,cy]);if(grid[cy][cx]!==''&&grid[cy][cx]!==w[k]){fits=false;break;}}
+        if(!fits)continue;
+        cells.forEach(function(c,idx){grid[c[1]][c[0]]=w[idx];});
+        placed[w]=cells;done=true;break;
+      }
+      if(!done){ok=false;break;}
+    }
+    if(ok){
+      var letters='ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+      for(i=0;i<size;i++)for(j=0;j<size;j++)if(grid[i][j]==='')grid[i][j]=letters[Math.floor(Math.random()*letters.length)];
+      window._ws={grid:grid,placed:placed,size:size,words:words};
+      var html='<div class="toolbar no-print"><button class="btn small" onclick="window.print()">'+'Print puzzle</button> '
+        +'<button class="btn ghost small" onclick="wsToggle()">Show answers</button></div>';
+      html+='<div class="ws-grid" id="ws-grid" style="grid-template-columns:repeat('+size+',1fr)">';
+      for(var y=0;y<size;y++)for(var x=0;x<size;x++){
+        var hit=false;
+        Object.keys(placed).forEach(function(w){placed[w].forEach(function(c){if(c[0]===x&&c[1]===y)hit=true;});});
+        html+='<span data-x="'+x+'" data-y="'+y+'"'+(hit?' class="hit" data-hit="1"':'')+'>'+grid[y][x]+'</span>';
+      }
+      html+='</div><h3>Words to find</h3><p>'+words.join(' &middot; ')+'</p>';
+      out.innerHTML=html;
+      document.querySelectorAll('#ws-grid span.hit').forEach(function(s){s.classList.remove('hit');});
+      document.getElementById('ws-toggle-state').textContent='Answers hidden — press “Show answers” to check.';
+      return;
+    }
+  }
+  out.innerHTML='<div class="empty">Some words would not fit in a '+size+'×'+size+' grid. Try a bigger grid, shorter words, or fewer words.</div>';
+}
+function wsToggle(){
+  var on=document.getElementById('ws-grid').dataset.show==='1';
+  document.getElementById('ws-grid').dataset.show=on?'0':'1';
+  document.querySelectorAll('#ws-grid span[data-hit="1"]').forEach(function(s){s.classList.toggle('hit',!on);});
+  document.getElementById('ws-toggle-state').textContent=on?'Answers hidden — press “Show answers” to check.':'Answers shown — highlighted letters spell each word.';
+}
+</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How many words can I use?", "acceptedAnswer": {"@type": "Answer", "text": "Between 3 and 20 words, each 2 to 15 letters long. Longer lists need a bigger grid \u2014 try 14\u00d714 for 20 words."}}, {"@type": "Question", "name": "Can I print the puzzle?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Press \u201cPrint puzzle\u201d and only the puzzle prints \u2014 the website around it is hidden. Print the answer key by pressing \u201cShow answers\u201d first, then printing."}}, {"@type": "Question", "name": "Is there an answer key?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Press \u201cShow answers\u201d to highlight every hidden word in the grid, then print if you want a key on paper."}}, {"@type": "Question", "name": "Does it work on a phone?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The generator runs in your browser on any device, and the puzzle prints from a phone or tablet the same way."}}, {"@type": "Question", "name": "Is it really free?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. No sign-up, no email, no watermark \u2014 make as many puzzles as you like."}}]}</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+<a class="logo" href="index.html">Classroom<span>Kit</span></a>
+<nav class="main"><span class="nav-group"><span class="nav-label">Generators</span><a href="word-search-generator.html">Word Search</a><a href="bingo-generator.html">Bingo</a><a href="math-worksheet-generator.html">Math Worksheet</a><a href="crossword-maker.html">Crossword</a></span><span class="nav-group"><a class="pack-link" href="https://payhip.com/MerryPrintables">Games Pack $9</a></span></nav>
+</div></header>
+<main>
+<div class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> &rsaquo; <b>Free word search generator</b></nav></div>
+<section class="hero hero-compact"><div class="wrap">
+<h1>Free word search generator — <em>your</em> words, print-ready.</h1>
+<p class="lede">Paste a spelling or vocabulary list. Get a printable puzzle and a separate answer key — free, no sign-up.</p>
+<div class="chips"><span class="chip">Free forever</span><span class="chip">No sign-up</span><span class="chip">Answer key included</span><span class="chip">Print-ready</span></div>
+</div></section>
+<section><div class="wrap">
+<h2>How it works</h2>
+<ol class="steps"><li><b>Paste 5–20 words.</b> one per line — your spelling or vocabulary list.</li><li><b>Choose grid size &amp; difficulty.</b> 10×10 for a quick puzzle, 14×14 for long lists.</li><li><b>Generate, then print.</b> puzzle plus answer key, black-and-white friendly.</li></ol>
+<div class="workspace">
+<div class="panel"><label for="ws-words">Your words — one per line (3–20 words)</label>
+<textarea id="ws-words" rows="8">CAT
+DOG
+LION
+BEAR
+FROG
+WOLF
+DUCK
+GOAT
+HORSE
+MOUSE</textarea>
+<p class="help">Spelling or vocabulary words, 2–15 letters each. The sample list above is Animals — replace it with your own.</p>
+<label for="ws-size">Grid size</label>
+<select id="ws-size"><option value="10">10 × 10 — quick puzzle</option><option value="12" selected>12 × 12 — standard</option><option value="14">14 × 14 — long lists</option></select>
+<label for="ws-diff">Difficulty</label>
+<select id="ws-diff"><option value="easy">Easy — across and down</option><option value="medium" selected>Medium — plus diagonal</option><option value="hard">Hard — plus backwards</option></select>
+<p style="margin-top:14px"><button class="btn pine" onclick="wsGenerate()">Generate puzzle</button></p>
+<p class="muted" id="ws-msg"></p>
+<p class="muted" id="ws-toggle-state"></p></div>
+<div><div class="output" id="output"><div class="empty">Your puzzle will appear here.</div></div>
+<aside class="rail-card no-print">
+<img src="assets/pack-cover.svg" alt="Classroom Games Mega Pack cover" loading="lazy" width="130" height="173">
+<h3 style="margin:0 0 4px">Classroom Games Mega Pack</h3>
+<p class="muted">45 pages &middot; instant download</p>
+<p><span class="price">$9</span></p>
+<p><a class="btn small" href="https://payhip.com/MerryPrintables">Buy — $9</a></p>
+</aside></div>
+</div>
+<h2>Use it in class</h2>
+<ul class="uses"><li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg><span><b>Bell-ringer.</b> hand it out as pupils settle in — five minutes of quiet focus.</span></li><li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg><span><b>Spelling homework.</b> the week's spelling list as a puzzle instead of a copy-out.</span></li><li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span><b>Early-finisher.</b> a puzzle on the desk for pupils who finish first.</span></li><li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg><span><b>Substitute-teacher pack.</b> print a set in advance; any adult can run it.</span></li></ul>
+<div class="cta-band no-print"><div class="cta-text">
+<h3>Don't want to type a list?</h3>
+<p>The Classroom Games Mega Pack has 10 ready-made word searches — animals, weather, numbers, food and more — with answer keys. $9 &rarr;</p></div>
+<img src="assets/preview-word-search.svg" alt="Classroom Games Mega Pack preview" loading="lazy" width="120" height="155">
+<p><a class="btn small" href="https://payhip.com/MerryPrintables">Buy the Games Pack — $9 &rarr;</a></p>
+</div>
+<h2>Questions</h2>
+<div class="faq">
+<details><summary>How many words can I use?</summary><p>Between 3 and 20 words, each 2 to 15 letters long. Longer lists need a bigger grid — try 14×14 for 20 words.</p></details>
+<details><summary>Can I print the puzzle?</summary><p>Yes. Press “Print puzzle” and only the puzzle prints — the website around it is hidden. Print the answer key by pressing “Show answers” first, then printing.</p></details>
+<details><summary>Is there an answer key?</summary><p>Yes. Press “Show answers” to highlight every hidden word in the grid, then print if you want a key on paper.</p></details>
+<details><summary>Does it work on a phone?</summary><p>Yes. The generator runs in your browser on any device, and the puzzle prints from a phone or tablet the same way.</p></details>
+<details><summary>Is it really free?</summary><p>Yes. No sign-up, no email, no watermark — make as many puzzles as you like.</p></details>
+</div>
+</div></section>
+<section class="related"><div class="wrap">
+<h2>Related generators</h2>
+<div class="grid"><article class="card"><div class="body">
+<div class="tool-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8.4 3v18M13.8 3v18M3 8.4h18M3 13.8h18"/><rect x="8.4" y="8.4" width="5.4" height="5.4" fill="#D4A94E" stroke="none"/></svg></div>
+<h3><a href="bingo-generator.html">Bingo Card Generator</a></h3>
+<p>Up to 30 unique cards plus a caller sheet.</p>
+<p><a href="bingo-generator.html">Open generator &rarr;</a></p>
+</div></article><article class="card"><div class="body">
+<div class="tool-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8"/><path d="M9 12l3 3M12 12l-3 3"/><path d="M17 11.5h-3M15.5 10v3"/></svg></div>
+<h3><a href="math-worksheet-generator.html">Math Worksheet Generator</a></h3>
+<p>Addition, subtraction, multiplication and division drills.</p>
+<p><a href="math-worksheet-generator.html">Open generator &rarr;</a></p>
+</div></article><article class="card"><div class="body">
+<div class="tool-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="6" height="6"/><rect x="9" y="3" width="6" height="6"/><rect x="15" y="3" width="6" height="6"/><rect x="9" y="9" width="6" height="6"/><rect x="9" y="15" width="6" height="6"/><rect x="15" y="15" width="6" height="6"/><rect x="3" y="15" width="6" height="6"/></svg></div>
+<h3><a href="crossword-maker.html">Crossword Maker</a></h3>
+<p>Word and clue pairs &rarr; a printable crossword.</p>
+<p><a href="crossword-maker.html">Open generator &rarr;</a></p>
+</div></article></div>
+</div></section>
+
+</main>
+<footer class="site"><div class="wrap">
+<div class="foot-grid">
+<div>
+<h3>ClassroomKit</h3>
+<p>ClassroomKit makes free, print-ready classroom generators. No sign-up, no watermark. Made by the same maker as Merry Printables.</p>
+<p>Sister sites: <a href="https://hanxianqing.github.io/">Merry Printables</a> — party games &amp; planners from the same maker · <a href="https://hanxianqing.github.io/localtools/">LocalTools</a> — free file tools that run on your device.</p>
+</div>
+<div>
+<h3>Generators</h3>
+<ul>
+<li><a href="word-search-generator.html">Word Search Generator</a></li>
+<li><a href="bingo-generator.html">Bingo Card Generator</a></li>
+<li><a href="math-worksheet-generator.html">Math Worksheet Generator</a></li>
+<li><a href="crossword-maker.html">Crossword Maker</a></li>
+</ul>
+</div>
+<div>
+<h3>Packs &amp; more</h3>
+<ul>
+<li><a href="https://payhip.com/MerryPrintables">Classroom Games Mega Pack — $9</a></li>
+<li><a href="https://payhip.com/MerryPrintables">Merry Printables store (Payhip)</a></li>
+<li><a href="https://hanxianqing.github.io/localtools/">LocalTools</a></li>
+</ul>
+</div>
+</div>
+<p class="foot-base">&copy; 2026 ClassroomKit &middot; All tools run in your browser — nothing is uploaded.</p>
+</div></footer>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Free Math Worksheet Generator — Addition, Subtraction, Multiplication & Division | ClassroomKit</title>
+<meta name="description" content="Make a free printable math drill sheet: pick an operation, a number range and how many questions. With an answer key, no sign-up.">
+<link rel="canonical" href="https://hanxianqing.github.io/classroomkit/math-worksheet-generator.html">
+<meta property="og:title" content="Free Math Worksheet Generator — Addition, Subtraction, Multiplication & Division | ClassroomKit">
+<meta property="og:description" content="Make a free printable math drill sheet: pick an operation, a number range and how many questions. With an answer key, no sign-up.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hanxianqing.github.io/classroomkit/math-worksheet-generator.html">
+<meta property="og:site_name" content="ClassroomKit">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/style.css">
+<script>
+function mathGenerate(){
+  var op=document.querySelector('input[name="math-op"]:checked').value;
+  var range=document.getElementById('math-range').value.split('-');
+  var lo=parseInt(range[0],10),hi=parseInt(range[1],10);
+  var count=parseInt(document.getElementById('math-count').value,10);
+  var showKey=document.getElementById('math-key').checked;
+  var out=document.getElementById('output');
+  var probs=[],answers=[];
+  function rnd(a,b){return a+Math.floor(Math.random()*(b-a+1));}
+  for(var i=0;i<count;i++){
+    var o=op;
+    if(o==='mixed'){o=['add','sub','mul','div'][Math.floor(Math.random()*4)];}
+    var a,b,q,txt,ans;
+    if(o==='add'){a=rnd(lo,hi);b=rnd(lo,hi);txt=a+' + '+b;ans=a+b;}
+    else if(o==='sub'){a=rnd(lo,hi);b=rnd(lo,a);txt=a+' − '+b;ans=a-b;}
+    else if(o==='mul'){a=rnd(2,12);b=rnd(2,12);txt=a+' × '+b;ans=a*b;}
+    else{a=rnd(2,12);b=rnd(2,12);txt=(a*b)+' ÷ '+a;ans=b;}
+    probs.push(txt);answers.push(ans);
+  }
+  var html='<div class="toolbar no-print"><button class="btn small" onclick="window.print()">Print worksheet</button> '
+    +'<button class="btn ghost small" onclick="mathToggle()">'+(showKey?'Hide':'Show')+' answer key</button></div>';
+  html+='<div class="math-sheet"><p><b>Name:</b> ______________________ &nbsp; <b>Date:</b> __________ &nbsp; <b>Score:</b> ____ / '+count+'</p><ol>';
+  probs.forEach(function(p){html+='<li>'+p+' = ______</li>';});
+  html+='</ol></div>';
+  html+='<div id="math-key-block" style="display:'+(showKey?'block':'none')+'"><h3>Answer key</h3><p>'+answers.map(function(a,i){return (i+1)+'. '+a;}).join(' &nbsp; ')+'</p></div>';
+  out.innerHTML=html;
+  window._mathKey=showKey;
+}
+function mathToggle(){
+  var b=document.getElementById('math-key-block');
+  if(!b)return;
+  b.style.display=b.style.display==='none'?'block':'none';
+}
+</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Which grades is this for?", "acceptedAnswer": {"@type": "Answer", "text": "Grades 1\u20136. Use the 1\u201310 range for early grades, 1\u201320 for grade 2\u20133, and 1\u2013100 or the multiplication tables for grades 3\u20136."}}, {"@type": "Question", "name": "Can I mix operations?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Choose \u201cMixed\u201d and the sheet mixes addition, subtraction, multiplication and division."}}, {"@type": "Question", "name": "How many questions can I make?", "acceptedAnswer": {"@type": "Answer", "text": "10, 20 or 30 questions per sheet. Generate a fresh sheet as often as you like \u2014 the numbers change every time."}}, {"@type": "Question", "name": "Does it include division with remainders?", "acceptedAnswer": {"@type": "Answer", "text": "No \u2014 division questions are exact (for example 42 \u00f7 7), so every answer is a whole number. That keeps the sheet right for grades 3\u20134."}}, {"@type": "Question", "name": "Is there an answer key?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Tick \u201cInclude answer key\u201d and the key prints below the questions, or use the \u201cShow answer key\u201d button after generating."}}]}</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+<a class="logo" href="index.html">Classroom<span>Kit</span></a>
+<nav class="main"><span class="nav-group"><span class="nav-label">Generators</span><a href="word-search-generator.html">Word Search</a><a href="bingo-generator.html">Bingo</a><a href="math-worksheet-generator.html">Math Worksheet</a><a href="crossword-maker.html">Crossword</a></span><span class="nav-group"><a class="pack-link" href="https://payhip.com/MerryPrintables">Games Pack $9</a></span></nav>
+</div></header>
+<main>
+<div class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> &rsaquo; <b>Free math worksheet generator</b></nav></div>
+<section class="hero hero-compact"><div class="wrap">
+<h1>Free math worksheet generator — <em>drills for today's lesson</em>.</h1>
+<p class="lede">Pick an operation, a number range and how many questions. Print a drill sheet with an answer key — free, no sign-up.</p>
+<div class="chips"><span class="chip">+ − × ÷</span><span class="chip">Grades 1–6</span><span class="chip">Answer key included</span></div>
+</div></section>
+<section><div class="wrap">
+<h2>How it works</h2>
+<ol class="steps"><li><b>Choose operation and range.</b> addition, subtraction, multiplication, division or mixed.</li><li><b>Choose question count.</b> 10, 20 or 30 questions.</li><li><b>Generate, print, mark with the key.</b> a fresh sheet every time.</li></ol>
+<div class="workspace">
+<div class="panel"><p style="font-weight:700;color:var(--pine);font-size:.92rem">Operation</p>
+<div class="radio-chips" style="margin-top:6px">
+<label><input type="radio" name="math-op" value="add"> Addition</label>
+<label><input type="radio" name="math-op" value="sub"> Subtraction</label>
+<label><input type="radio" name="math-op" value="mul" checked> Multiplication</label>
+<label><input type="radio" name="math-op" value="div"> Division</label>
+<label><input type="radio" name="math-op" value="mixed"> Mixed</label>
+</div>
+<label for="math-range">Number range</label>
+<select id="math-range"><option value="1-10">1 – 10 (grades 1–2)</option><option value="1-20" selected>1 – 20 (grades 2–3)</option><option value="1-100">1 – 100 (grades 3–6)</option></select>
+<label for="math-count">How many questions?</label>
+<select id="math-count"><option value="10">10 questions</option><option value="20" selected>20 questions</option><option value="30">30 questions</option></select>
+<p style="margin-top:12px"><label style="display:flex;gap:8px;align-items:center;font-weight:600"><input type="checkbox" id="math-key" checked> Include answer key</label></p>
+<p style="margin-top:14px"><button class="btn pine" onclick="mathGenerate()">Generate worksheet</button></p></div>
+<div><div class="output" id="output"><div class="empty">Your puzzle will appear here.</div></div>
+<aside class="rail-card no-print">
+<img src="assets/pack-cover.svg" alt="Classroom Games Mega Pack cover" loading="lazy" width="130" height="173">
+<h3 style="margin:0 0 4px">Classroom Games Mega Pack</h3>
+<p class="muted">45 pages &middot; instant download</p>
+<p><span class="price">$9</span></p>
+<p><a class="btn small" href="https://payhip.com/MerryPrintables">Buy — $9</a></p>
+</aside></div>
+</div>
+<h2>Use it in class</h2>
+<ul class="uses"><li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg><span><b>Morning drill.</b> a fresh sheet on every desk when the bell goes.</span></li><li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg><span><b>Timed 5-minute test.</b> how many can they finish before the timer?</span></li><li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span><b>Homework sheet.</b> the same operation, a new sheet, every night.</span></li><li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg><span><b>Intervention small-group set.</b> one operation at a time, at the right range.</span></li></ul>
+<div class="cta-band no-print"><div class="cta-text">
+<h3>Don't want to type a list?</h3>
+<p>The Mega Pack has 10 ready-made math review games — multiplication bingo, addition/subtraction race sheets, times-table maze — with answer keys. $9 &rarr;</p></div>
+<img src="assets/preview-math-race.svg" alt="Classroom Games Mega Pack preview" loading="lazy" width="120" height="155">
+<p><a class="btn small" href="https://payhip.com/MerryPrintables">Buy the Games Pack — $9 &rarr;</a></p>
+</div>
+<h2>Questions</h2>
+<div class="faq">
+<details><summary>Which grades is this for?</summary><p>Grades 1–6. Use the 1–10 range for early grades, 1–20 for grade 2–3, and 1–100 or the multiplication tables for grades 3–6.</p></details>
+<details><summary>Can I mix operations?</summary><p>Yes. Choose “Mixed” and the sheet mixes addition, subtraction, multiplication and division.</p></details>
+<details><summary>How many questions can I make?</summary><p>10, 20 or 30 questions per sheet. Generate a fresh sheet as often as you like — the numbers change every time.</p></details>
+<details><summary>Does it include division with remainders?</summary><p>No — division questions are exact (for example 42 ÷ 7), so every answer is a whole number. That keeps the sheet right for grades 3–4.</p></details>
+<details><summary>Is there an answer key?</summary><p>Yes. Tick “Include answer key” and the key prints below the questions, or use the “Show answer key” button after generating.</p></details>
+</div>
+</div></section>
+<section class="related"><div class="wrap">
+<h2>Related generators</h2>
+<div class="grid"><article class="card"><div class="body">
+<div class="tool-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="13" height="13" rx="1.5"/><path d="M6 2v13M10.5 2v13M2 6.5h13M2 11h13"/><circle cx="17" cy="17" r="4.5"/><path d="M20.5 20.5 23 23"/></svg></div>
+<h3><a href="word-search-generator.html">Word Search Generator</a></h3>
+<p>Spelling lists &rarr; printable puzzle in 30 seconds.</p>
+<p><a href="word-search-generator.html">Open generator &rarr;</a></p>
+</div></article><article class="card"><div class="body">
+<div class="tool-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8.4 3v18M13.8 3v18M3 8.4h18M3 13.8h18"/><rect x="8.4" y="8.4" width="5.4" height="5.4" fill="#D4A94E" stroke="none"/></svg></div>
+<h3><a href="bingo-generator.html">Bingo Card Generator</a></h3>
+<p>Up to 30 unique cards plus a caller sheet.</p>
+<p><a href="bingo-generator.html">Open generator &rarr;</a></p>
+</div></article><article class="card"><div class="body">
+<div class="tool-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="6" height="6"/><rect x="9" y="3" width="6" height="6"/><rect x="15" y="3" width="6" height="6"/><rect x="9" y="9" width="6" height="6"/><rect x="9" y="15" width="6" height="6"/><rect x="15" y="15" width="6" height="6"/><rect x="3" y="15" width="6" height="6"/></svg></div>
+<h3><a href="crossword-maker.html">Crossword Maker</a></h3>
+<p>Word and clue pairs &rarr; a printable crossword.</p>
+<p><a href="crossword-maker.html">Open generator &rarr;</a></p>
+</div></article></div>
+</div></section>
+
+</main>
+<footer class="site"><div class="wrap">
+<div class="foot-grid">
+<div>
+<h3>ClassroomKit</h3>
+<p>ClassroomKit makes free, print-ready classroom generators. No sign-up, no watermark. Made by the same maker as Merry Printables.</p>
+<p>Sister sites: <a href="https://hanxianqing.github.io/">Merry Printables</a> — party games &amp; planners from the same maker · <a href="https://hanxianqing.github.io/localtools/">LocalTools</a> — free file tools that run on your device.</p>
+</div>
+<div>
+<h3>Generators</h3>
+<ul>
+<li><a href="word-search-generator.html">Word Search Generator</a></li>
+<li><a href="bingo-generator.html">Bingo Card Generator</a></li>
+<li><a href="math-worksheet-generator.html">Math Worksheet Generator</a></li>
+<li><a href="crossword-maker.html">Crossword Maker</a></li>
+</ul>
+</div>
+<div>
+<h3>Packs &amp; more</h3>
+<ul>
+<li><a href="https://payhip.com/MerryPrintables">Classroom Games Mega Pack — $9</a></li>
+<li><a href="https://payhip.com/MerryPrintables">Merry Printables store (Payhip)</a></li>
+<li><a href="https://hanxianqing.github.io/localtools/">LocalTools</a></li>
+</ul>
+</div>
+</div>
+<p class="foot-base">&copy; 2026 ClassroomKit &middot; All tools run in your browser — nothing is uploaded.</p>
+</div></footer>
+</body>
+</html>

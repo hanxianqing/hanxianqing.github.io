@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500" role="img" >
+
+<rect width="800" height="500" fill="#0E3B2E"/>
+<circle cx="400" cy="250" r="180" fill="#092A20"/>
+<rect x="240" y="150" width="320" height="200" rx="12" fill="#FFFFFF"/>
+<rect x="240" y="150" width="320" height="34" fill="#F6EAD0"/><circle cx="262" cy="167" r="5" fill="#C0392B"/><circle cx="280" cy="167" r="5" fill="#D4A94E"/><circle cx="298" cy="167" r="5" fill="#0E3B2E"/>
+<rect x="268" y="210" width="180" height="12" rx="6" fill="#E5DDD0"/><rect x="268" y="236" width="240" height="12" rx="6" fill="#E5DDD0"/><rect x="268" y="262" width="140" height="12" rx="6" fill="#E5DDD0"/>
+<circle cx="470" cy="300" r="34" fill="#EEF4EE" stroke="#D4A94E" stroke-width="3"/><path d="M456 300l10 10 20-22" fill="none" stroke="#0E3B2E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M180 380 L620 380" stroke="#D4A94E" stroke-width="4" stroke-linecap="round"/>
+<rect x="330" y="380" width="140" height="14" rx="4" fill="#D4A94E"/>
+<text x="400" y="440" text-anchor="middle" font-family="-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" font-weight="700" font-size="22" fill="#FFFFFF">Your files never leave your device</text>
+<g fill="none" stroke="#D4A94E" stroke-width="2"><rect x="150" y="180" width="52" height="66" rx="6"/><path d="M150 196h52M164 214h24"/></g>
+<g fill="none" stroke="#D4A94E" stroke-width="2"><rect x="600" y="180" width="52" height="66" rx="6"/><path d="M600 196h52M614 214h24"/></g>
+</svg>
