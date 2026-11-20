@@ -1,0 +1,58 @@
+
+/* ---- self-serve sponsorship (shared component, sponsor_component.py) ---- */
+.btn-sponsor{display:inline-block;font-family:inherit;font-weight:700;text-decoration:none;border-radius:999px;padding:8px 18px;font-size:.92rem;border:2px solid #D4A94E;background:#D4A94E;color:#0E3B2E;cursor:pointer;line-height:1.2;white-space:nowrap}
+.btn-sponsor:hover{background:#C39A3F;border-color:#C39A3F}
+header.site .btn-sponsor{margin-left:10px}
+.sp-overlay{position:fixed;inset:0;background:rgba(14,59,46,.62);z-index:200;display:none;align-items:flex-start;justify-content:center;padding:24px 14px;overflow-y:auto}
+.sp-overlay.open{display:flex}
+.sp-modal{background:#fff;border-radius:16px;max-width:560px;width:100%;margin:auto;box-shadow:0 24px 60px rgba(0,0,0,.35);overflow:hidden}
+.sp-modal-head{background:#0E3B2E;color:#FFF6DC;padding:18px 22px;display:flex;align-items:flex-start;gap:12px}
+.sp-modal-head h2{color:#FFF6DC;margin:0;font-size:1.35rem}
+.sp-modal-head p{color:#B9CEC2;margin:4px 0 0;font-size:.9rem}
+.sp-close{margin-left:auto;background:transparent;border:0;color:#FFF6DC;font-size:1.6rem;line-height:1;cursor:pointer;padding:2px 6px}
+.sp-steps{display:flex;gap:6px;padding:14px 22px 0;font-size:.82rem;color:#5A6663}
+.sp-steps span{flex:1;text-align:center;padding-bottom:8px;border-bottom:3px solid #E5DDD0}
+.sp-steps span.on{color:#0E3B2E;font-weight:700;border-bottom-color:#D4A94E}
+.sp-body{padding:18px 22px 22px}
+.sp-step{display:none}.sp-step.on{display:block}
+.sp-tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:6px 0 16px}
+.sp-tier{border:2px solid #E5DDD0;border-radius:12px;padding:14px;cursor:pointer;background:#fff;text-align:left;font-family:inherit}
+.sp-tier:hover{border-color:#D4A94E}
+.sp-tier.sel{border-color:#0E3B2E;background:#FFF6DC}
+.sp-tier .t-name{font-family:Georgia,serif;font-weight:700;color:#0E3B2E;font-size:1.05rem}
+.sp-tier .t-price{font-family:Georgia,serif;font-size:1.5rem;font-weight:700;color:#C0392B;margin:4px 0 0}
+.sp-tier .t-days{font-size:.82rem;color:#5A6663}
+.sp-tier .t-desc{font-size:.86rem;color:#3C4A45;margin:8px 0 0}
+.sp-tier .t-pop{display:inline-block;background:#D4A94E;color:#0E3B2E;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:6px;padding:2px 8px;margin-top:8px}
+.sp-field{margin-bottom:14px}
+.sp-field label{display:block;font-weight:700;color:#0E3B2E;font-size:.92rem;margin-bottom:4px}
+.sp-field input,.sp-field textarea{width:100%;box-sizing:border-box;font-family:inherit;font-size:1rem;padding:10px 12px;border:1.5px solid #D8D2C4;border-radius:10px;background:#fff;color:#22292A}
+.sp-field input:focus,.sp-field textarea:focus{outline:2px solid #D4A94E;border-color:#D4A94E}
+.sp-field textarea{resize:vertical;min-height:64px}
+.sp-field .hint{font-size:.8rem;color:#5A6663;margin-top:3px}
+.sp-field .err{display:none;color:#C0392B;font-size:.85rem;margin-top:3px}
+.sp-field.invalid input,.sp-field.invalid textarea{border-color:#C0392B}
+.sp-field.invalid .err{display:block}
+.sp-rules{font-size:.85rem;color:#5A6663;background:#FAF7EF;border:1px solid #E5DDD0;border-radius:10px;padding:10px 12px;margin:0 0 16px}
+.sp-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:18px}
+.sp-pay-amount{font-family:Georgia,serif;font-size:1.4rem;font-weight:700;color:#0E3B2E;margin:6px 0 12px}
+.sp-note{background:#F6EAD0;border-left:4px solid #D4A94E;padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 16px}
+.sp-note p{margin:0}
+.sp-success{text-align:center;padding:8px 0 4px}
+.sp-success .ok{font-size:2.6rem;line-height:1}
+.sp-success h3{font-size:1.3rem;margin:8px 0}
+.sp-error{display:none;background:#FDECEC;border:1px solid #E8AFAF;color:#8B1E1E;border-radius:10px;padding:10px 12px;font-size:.9rem;margin-bottom:14px}
+.sp-error.show{display:block}
+/* sponsored cards (live + placeholder) — labelled, never a real pick */
+.sp-card{border:2px solid #D4A94E;background:#F6EAD0;border-radius:14px;overflow:hidden}
+.sp-card .body{padding:16px 18px 20px;text-align:center}
+.sp-badge{display:inline-block;background:#D4A94E;color:#0E3B2E;font-family:Georgia,serif;font-weight:700;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;padding:5px 14px;border-radius:6px;border:1px solid #B98A2F}
+.sp-card h3{font-size:1.12rem;margin:10px 0 6px}
+.sp-card p{margin:0 0 10px}
+.sp-card .sp-logo{max-height:64px;width:auto;margin:6px auto 0}
+/* advertise page tier grid */
+.sp-tier-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:16px 0}
+.sp-tier-grid .sp-tier{cursor:default}
+.sp-tier-grid .sp-tier .t-cta{margin-top:12px}
+@media(max-width:640px){.sp-tiers{grid-template-columns:1fr}.sp-tier-grid{grid-template-columns:1fr}.sp-modal-head h2{font-size:1.15rem}header.site .btn-sponsor{padding:6px 12px;font-size:.85rem}}
+@media print{.sp-overlay,.btn-sponsor{display:none!important}}

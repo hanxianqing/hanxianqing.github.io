@@ -6,11 +6,12 @@
 <link rel="canonical" href="https://hanxianqing.github.io/pennymath/salary-calculator.html">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/sponsor.css">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Salary & Take-Home Pay Calculator \u2014 Federal + 5 States | PennyMath", "description": "Free salary calculator: gross pay to take-home pay with 2026 US federal tax and state tax for CA, NY, TX, FL and WA. No sign-up.", "url": "https://hanxianqing.github.io/pennymath/salary-calculator.html", "isPartOf": {"@type": "WebSite", "name": "PennyMath", "url": "https://hanxianqing.github.io/pennymath"}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Why is my take-home pay less than my salary?", "acceptedAnswer": {"@type": "Answer", "text": "Federal tax, state tax, Social Security and Medicare are all withheld before the money reaches you. On a typical salary they take roughly a fifth to a quarter of gross pay."}}, {"@type": "Question", "name": "Does moving into a higher tax bracket tax all my income more?", "acceptedAnswer": {"@type": "Answer", "text": "No. Only the income inside each bracket is taxed at that bracket's rate. A pay rise can never leave you with less take-home pay because of the brackets alone."}}, {"@type": "Question", "name": "Why only five states?", "acceptedAnswer": {"@type": "Answer", "text": "Each state has its own tax rules. California and New York are the two with the most complex income tax; Texas, Florida and Washington have no state income tax, so the calculator shows no state-tax line for them. More states may be added later."}}, {"@type": "Question", "name": "What is not included?", "acceptedAnswer": {"@type": "Answer", "text": "Pre-tax deductions such as 401(k) contributions and health insurance premiums, local or city taxes, and any state credits or adjustments. Your real paycheque will be lower than this estimate if you have those deductions."}}]}</script>
 </head><body>
 <header class="site"><div class="wrap"><a class="brand" href="index.html">Penny<b>Math</b></a>
-<nav class="main"><a href="index.html">Home</a><a href="compound-interest-calculator.html">Compound Interest</a><a href="mortgage-calculator.html">Mortgage</a><a href="salary-calculator.html" aria-current="page">Salary & Take-Home</a><a href="loan-payoff-calculator.html">Loan & Debt Payoff</a></nav></div></header>
+<nav class="main"><a href="index.html">Home</a><a href="compound-interest-calculator.html">Compound Interest</a><a href="mortgage-calculator.html">Mortgage</a><a href="salary-calculator.html" aria-current="page">Salary & Take-Home</a><a href="loan-payoff-calculator.html">Loan & Debt Payoff</a></nav><button type="button" class="btn-sponsor" data-sponsor-open>Sponsor</button></div></header>
 <div class="hero"><div class="wrap">
 <h1>Salary &amp; Take-Home Pay Calculator <span class="badge">Estimate</span></h1>
 <p class="lede">Gross pay to take-home pay, with US federal tax and state tax for California, New York, Texas, Florida and Washington.</p></div></div>
@@ -46,7 +47,7 @@
 <a href="https://hanxianqing.github.io/">Merry Printables</a>,
 <a href="https://hanxianqing.github.io/localtools/">LocalTools</a>,
 <a href="https://hanxianqing.github.io/classroomkit/">ClassroomKit</a> and
-<a href="https://hanxianqing.github.io/templatepack/">TemplatePack</a> — every tool runs entirely in your browser; nothing you type leaves your device.</p>
+<a href="https://hanxianqing.github.io/templatepack/">TemplatePack</a> — every tool runs entirely in your browser; nothing you type leaves your device. <a href="advertise.html">Sponsor PennyMath</a>.</p>
 <p class="disc">Planning tool only — not financial advice. Verify rates and tax figures with a professional.</p>
 <p class="disc">PennyMath is a planning tool, not a bank, lender or adviser. Interest rates, tax rules and prices change — check the current figures with a professional before you act on them.</p>
 </div></footer>
@@ -106,4 +107,54 @@ function toggleMode(){var h=$('mode').value==='hourly';$('hourly-fields').style.
 calcSalary();
 </script>
 <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "bc0bd030730a494486afb78a39ca9a7e"}'></script>
+<div class="sp-overlay" id="sp-overlay" role="dialog" aria-modal="true" aria-labelledby="sp-modal-title">
+<div class="sp-modal">
+<div class="sp-modal-head"><div><h2 id="sp-modal-title" tabindex="-1">Sponsor this site</h2><p>Your card appears on this site, clearly labelled Sponsored. Every submission is reviewed by a person before it goes live.</p></div>
+<button type="button" class="sp-close" data-sponsor-close aria-label="Close">&times;</button></div>
+<div class="sp-steps"><span class="on">1. Tier</span><span>2. Your card</span><span>3. Payment</span></div>
+<div class="sp-body">
+<div class="sp-error" id="sp-error" role="alert"></div>
+<div class="sp-step on" data-step="1">
+<div class="sp-tiers">
+<button type="button" class="sp-tier" data-tier="starter"><span class="t-name">Starter</span><span class="t-price">$5</span><br><span class="t-days">7 days</span><span class="t-desc">One sponsored card on this site for 7 days.</span></button>
+<button type="button" class="sp-tier" data-tier="standard"><span class="t-name">Standard</span><span class="t-price">$12</span><br><span class="t-days">30 days</span><span class="t-pop">Most popular</span><span class="t-desc">One sponsored card for 30 days. Best for most sponsors.</span></button>
+<button type="button" class="sp-tier" data-tier="featured"><span class="t-name">Featured</span><span class="t-price">$29</span><br><span class="t-days">30 days</span><span class="t-desc">Top placement — your card first — for 30 days.</span></button>
+</div>
+<div class="sp-actions"><button type="button" class="btn btn-pine" data-go-step="2">Continue &rarr;</button></div>
+</div>
+<div class="sp-step" data-step="2">
+<div class="sp-field"><label for="sp-brand">Brand / business name *</label><input id="sp-brand" type="text" maxlength="80" autocomplete="organization"><span class="err"></span></div>
+<div class="sp-field"><label for="sp-link">Link (your website) *</label><input id="sp-link" type="url" placeholder="https://" autocomplete="url"><span class="err"></span></div>
+<div class="sp-field"><label for="sp-title">Card title *</label><input id="sp-title" type="text" maxlength="60"><span class="hint"><span id="sp-title-count">60</span> characters left</span><span class="err"></span></div>
+<div class="sp-field"><label for="sp-desc">Card description *</label><textarea id="sp-desc" maxlength="140"></textarea><span class="hint"><span id="sp-desc-count">140</span> characters left</span><span class="err"></span></div>
+<div class="sp-field"><label for="sp-logo">Logo image URL (optional)</label><input id="sp-logo" type="url" placeholder="https://"><span class="err"></span></div>
+<div class="sp-field"><label for="sp-email">Contact email *</label><input id="sp-email" type="email" autocomplete="email"><span class="err"></span></div>
+<p class="sp-rules">No adult, gambling, crypto-giveaway, scam or illegal content. No link shorteners — link to your real site. Every sponsorship is reviewed by a person before it goes live.</p>
+<div class="sp-actions"><button type="button" class="btn btn-outline" data-go-step="1">&larr; Back</button><button type="button" class="btn btn-pine" data-go-step="3">Continue &rarr;</button></div>
+</div>
+<div class="sp-step" data-step="3">
+<div id="sp-pay-sdk">
+<h3>Pay with PayPal</h3>
+<p class="sp-pay-amount"><span data-pay-amount></span></p>
+<p id="sp-pay-fixed"></p>
+<div id="sp-paypal-buttons"></div>
+<p class="muted small">After payment, your request is submitted automatically. We publish within 24 hours after confirming payment.</p>
+<button type="button" class="btn btn-outline" id="sp-submit-fallback" data-sp-submit style="display:none">Submit sponsorship request</button>
+</div>
+<div id="sp-pay-soon" style="display:none">
+<div class="sp-note"><p><strong>Checkout is not open yet</strong></p><p>Submit your sponsorship request now and we will email you the PayPal payment link. Your card goes live within 24 hours after payment is confirmed.</p></div>
+<button type="button" class="btn btn-pine" id="sp-submit-soon" data-sp-submit>Submit sponsorship request</button>
+</div>
+<div class="sp-actions"><button type="button" class="btn btn-outline" data-go-step="2">&larr; Back</button></div>
+</div>
+<div id="sp-success" style="display:none">
+<div class="sp-success"><div class="ok">&#10003;</div>
+<h3>Request received</h3>
+<p id="sp-success-msg"></p>
+<p><button type="button" class="btn btn-pine" data-sponsor-close>Close</button></p></div>
+</div>
+</div>
+</div>
+</div>
+<script defer src="assets/sponsor.js"></script>
 </body></html>
