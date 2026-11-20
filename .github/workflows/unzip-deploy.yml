@@ -1,0 +1,45 @@
+name: Unzip site deployments
+on:
+  push:
+    branches: [main]
+permissions:
+  contents: write
+jobs:
+  unzip:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Unzip sites
+        run: |
+          set -e
+          deploy() {
+            zip="$1"; dest="$2"; clean="$3"
+            tmp=$(mktemp -d)
+            unzip -o -q "$zip" -d "$tmp"
+            top=$(find "$tmp" -mindepth 1 -maxdepth 1)
+            if [ "$(echo "$top" | wc -l)" = "1" ] && [ -d "$top" ] && [ -f "$top/index.html" ]; then
+              tmp="$top"
+            fi
+            if [ "$clean" = "clean" ]; then rm -rf "$dest"; fi
+            mkdir -p "$dest"
+            cp -a "$tmp"/. "$dest"/
+          }
+          deploy "merry-printables-site.zip" "." "keep"
+          deploy "localtools/localtools-site.zip" "localtools" "clean"
+          deploy "classroomkit/classroomkit-site.zip" "classroomkit" "clean"
+          deploy "templatepack/templatepack-site.zip" "templatepack" "clean"
+          deploy "pennymath/pennymath-site.zip" "pennymath" "clean"
+          rm -f build_site.py localtools/build_site.py classroomkit/build_site.py templatepack/build_site.py pennymath/build_site.py
+          rm -rf pack localtools/pack classroomkit/pack templatepack/pack pennymath/pack
+          find . -maxdepth 2 -name '*.md' -delete
+          rm -f merry-printables-site.zip localtools/localtools-site.zip classroomkit/classroomkit-site.zip templatepack/templatepack-site.zip pennymath/pennymath-site.zip
+          ls localtools classroomkit templatepack pennymath
+      - name: Commit and self-delete
+        run: |
+          rm -f .github/workflows/unzip-deploy.yml
+          git config user.name "hanxianqing"
+          git config user.email "hanxianqing@users.noreply.github.com"
+          git add -A
+          git status --short
+          git commit -m "Deploy 5 sites from zips (Cloudflare beacon)" || echo "nothing to commit"
+          git push
