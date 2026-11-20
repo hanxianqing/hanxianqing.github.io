@@ -1,0 +1,60 @@
+name: Deploy 5 sites from zips
+on:
+  push:
+    paths:
+      - '.github/workflows/deploy-zips.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Unzip sites into place
+        run: |
+          python3 - <<'PY'
+          import pathlib, shutil, tempfile, zipfile
+          root = pathlib.Path('.')
+          def deploy(zip_name, dest, clean):
+              zpath = root / zip_name
+              if not zpath.exists():
+                  raise SystemExit(f'missing {zip_name}')
+              tmp = pathlib.Path(tempfile.mkdtemp())
+              with zipfile.ZipFile(zpath) as z:
+                  z.extractall(tmp)
+              for p in list(tmp.rglob('__MACOSX')):
+                  shutil.rmtree(p, ignore_errors=True)
+              items = [p for p in tmp.iterdir() if p.name != '__MACOSX']
+              src = items[0] if len(items) == 1 and items[0].is_dir() else tmp
+              if clean:
+                  if dest.exists():
+                      shutil.rmtree(dest)
+                  dest.mkdir(parents=True)
+              else:
+                  dest.mkdir(parents=True, exist_ok=True)
+              for p in src.iterdir():
+                  t = dest / p.name
+                  if p.is_dir():
+                      if t.exists():
+                          shutil.rmtree(t)
+                      shutil.copytree(p, t)
+                  else:
+                      shutil.copy2(p, t)
+              zpath.unlink()
+              print(f'deployed {zip_name} -> {dest}')
+          deploy('merry-printables-site.zip', root, False)
+          deploy('localtools-site.zip', root / 'localtools', True)
+          deploy('classroomkit-site.zip', root / 'classroomkit', True)
+          deploy('templatepack-site.zip', root / 'templatepack', True)
+          deploy('pennymath-site.zip', root / 'pennymath', True)
+          PY
+      - name: Commit and self-delete workflow
+        run: |
+          git config user.name "hanxianqing"
+          git config user.email "hanxianqing@users.noreply.github.com"
+          rm -f .github/workflows/deploy-zips.yml
+          git add -A
+          git status --short
+          git commit -m "Deploy 5 sites from zips (SEO updates)" || echo "nothing to commit"
+          git push
