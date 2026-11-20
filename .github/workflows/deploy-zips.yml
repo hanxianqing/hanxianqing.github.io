@@ -16,10 +16,10 @@ jobs:
           python3 - <<'PY'
           import pathlib, shutil, tempfile, zipfile
           root = pathlib.Path('.')
-          def deploy(zip_name, dest, clean):
-              zpath = root / zip_name
+          def deploy(zip_path, dest, clean):
+              zpath = root / zip_path
               if not zpath.exists():
-                  raise SystemExit(f'missing {zip_name}')
+                  raise SystemExit(f'missing {zip_path}')
               tmp = pathlib.Path(tempfile.mkdtemp())
               with zipfile.ZipFile(zpath) as z:
                   z.extractall(tmp)
@@ -41,13 +41,14 @@ jobs:
                       shutil.copytree(p, t)
                   else:
                       shutil.copy2(p, t)
-              zpath.unlink()
-              print(f'deployed {zip_name} -> {dest}')
+              if zpath.exists():
+                  zpath.unlink()
+              print(f'deployed {zip_path} -> {dest}')
+          deploy('localtools/localtools-site.zip', root / 'localtools', True)
+          deploy('classroomkit/classroomkit-site.zip', root / 'classroomkit', True)
+          deploy('templatepack/templatepack-site.zip', root / 'templatepack', True)
+          deploy('pennymath/pennymath-site.zip', root / 'pennymath', True)
           deploy('merry-printables-site.zip', root, False)
-          deploy('localtools-site.zip', root / 'localtools', True)
-          deploy('classroomkit-site.zip', root / 'classroomkit', True)
-          deploy('templatepack-site.zip', root / 'templatepack', True)
-          deploy('pennymath-site.zip', root / 'pennymath', True)
           PY
       - name: Commit and self-delete workflow
         run: |
