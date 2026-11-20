@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://hanxianqing.github.io/localtools/sitemap.xml
+Sitemap: https://localtools-2fg.pages.dev/sitemap.xml

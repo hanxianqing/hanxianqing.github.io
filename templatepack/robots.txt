@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
 Sitemap: https://hanxianqing.github.io/templatepack/sitemap.xml
+Sitemap: https://templatepack.pages.dev/sitemap.xml

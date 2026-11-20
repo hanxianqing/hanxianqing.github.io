@@ -141,6 +141,11 @@ footer.site{background:var(--pine);color:#cfe0d6;padding:36px 0 24px;margin-top:
 .step3 .num{width:38px;height:38px;border-radius:50%;background:var(--red);color:#fff;font-family:var(--serif);font-weight:800;font-size:1.2rem;line-height:38px;margin:0 auto 10px}
 .step3 h3{margin:0 0 6px}
 .step3 p{font-size:.94rem;color:#3c4a45}
+/* ---- countdown ---- */
+.countdown{display:flex;flex-wrap:wrap;gap:14px;margin:22px 0}
+.cd-box{background:var(--pine);color:#fff;border-radius:14px;padding:18px 10px;min-width:110px;text-align:center;flex:1}
+.cd-box b{display:block;font-family:var(--serif);font-size:2.4rem;line-height:1;color:var(--gold)}
+.cd-box span{font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;color:#cfe0d6}
 /* ---- responsive ---- */
 @media(max-width:860px){
   .hero-grid,.hero-single{grid-template-columns:1fr;gap:24px}

@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
 Sitemap: https://hanxianqing.github.io/pennymath/sitemap.xml
+Sitemap: https://pennymath.pages.dev/sitemap.xml
