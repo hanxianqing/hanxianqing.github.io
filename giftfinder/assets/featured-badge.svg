@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="56" viewBox="0 0 240 56" role="img" aria-label="Featured Gift">
+  <!-- "Featured Gift" ribbon badge for the sponsored slot in finder results. -->
+  <!-- Gold ribbon (#D4A94E) with darker gold folds; pine Georgia serif label. -->
+  <polygon points="0,14 20,8 20,48 0,42" fill="#B98A2F"/>
+  <polygon points="240,14 220,8 220,48 240,42" fill="#B98A2F"/>
+  <rect x="20" y="8" width="200" height="40" rx="6" fill="#D4A94E"/>
+  <text x="120" y="34" text-anchor="middle" font-family="Georgia,'Times New Roman',Times,serif" font-weight="700" font-size="17" letter-spacing="2" fill="#0E3B2E">FEATURED GIFT</text>
+</svg>

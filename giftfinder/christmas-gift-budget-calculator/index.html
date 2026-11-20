@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Christmas Gift Budget Calculator | Holiday Gift Finder</title>
+<meta name="description" content="Free Christmas gift budget calculator: work out your total and per-person gift budget, what you have already spent, and what is left. No sign-up.">
+<link rel="canonical" href="https://hanxianqing.github.io/giftfinder/christmas-gift-budget-calculator/">
+<meta property="og:title" content="Christmas Gift Budget Calculator | Holiday Gift Finder">
+<meta property="og:description" content="Free Christmas gift budget calculator: work out your total and per-person gift budget, what you have already spent, and what is left. No sign-up.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hanxianqing.github.io/giftfinder/christmas-gift-budget-calculator/">
+<meta property="og:site_name" content="Holiday Gift Finder">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/style.css">
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Christmas Gift Budget Calculator | Holiday Gift Finder", "description": "Free Christmas gift budget calculator: work out your total and per-person gift budget, what you have already spent, and what is left. No sign-up.", "url": "https://hanxianqing.github.io/giftfinder/christmas-gift-budget-calculator/", "isPartOf": {"@type": "WebSite", "name": "Holiday Gift Finder", "url": "https://hanxianqing.github.io/giftfinder/"}}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is this financial advice?", "acceptedAnswer": {"@type": "Answer", "text": "No. This is a planning estimate, not financial advice. It only adds up the numbers you type in \u2014 it does not know your income, debts or other commitments. Prices change \u2014 check before you buy."}}, {"@type": "Question", "name": "What does the total budget cap do?", "acceptedAnswer": {"@type": "Answer", "text": "If you set a total cap lower than per-person budget times people, the cap wins: the calculator lowers your per-person figure to fit the cap, and says so in the result."}}, {"@type": "Question", "name": "What if I have already bought some gifts?", "acceptedAnswer": {"@type": "Answer", "text": "Type what you have spent so far into \u201calready bought\u201d. The calculator subtracts it and shows what is left \u2014 the bar shows spent versus remaining."}}, {"@type": "Question", "name": "Is my data sent anywhere?", "acceptedAnswer": {"@type": "Answer", "text": "No. The calculator runs entirely in your browser. Nothing you type leaves your device, and there is no sign-up or email gate on the result."}}, {"@type": "Question", "name": "What fits my per-person budget?", "acceptedAnswer": {"@type": "Answer", "text": "The result lists our printable packs at or under your per-person figure, and links to the Gift Finder with your budget pre-selected."}}]}</script>
+</head><body>
+<header class="site"><div class="wrap"><a class="brand" href="../index.html">Holiday <b>Gift Finder</b></a>
+<nav class="main"><a href="../index.html">Gift Finder</a><a href="../gifts-for-mom-under-25/">Mom under $25</a><a href="../stocking-stuffers-under-10/">Stocking Stuffers</a><a href="../gifts-for-teachers-under-20/">Teachers</a><a href="../gifts-for-boyfriend-under-50/">Boyfriend</a><a href="../podcast-microphone-under-100/">Mic under $100</a><a href="../classic-toy-train-set/">Toy Train</a><a href="../last-minute-christmas-gifts/">Last Minute</a><a href="../christmas-gift-budget-calculator/" aria-current="page">Budget Calculator</a><a href="../advertise/">Advertise</a></nav></div></header>
+<div class="ad-slot ad-leaderboard ad-slot--leaderboard" role="complementary" aria-label="Advertisement slot, currently unfilled"><!-- AD SLOT: leaderboard 728x90 — paste ad-network code here when a network is live; until then this placeholder stays. -->Advertisement<span class="size">728 &times; 90</span></div>
+<main>
+<div class="wrap"><nav class="crumbs" aria-label="Breadcrumb">
+<a href="../index.html">Home</a> &rsaquo; <b>Christmas Gift Budget Calculator</b></nav></div>
+<section class="hero"><div class="wrap"><div class="hero-grid">
+<div><h1>Christmas Gift Budget Calculator</h1>
+<p class="lede">Work out what you can spend on Christmas gifts — per person and in total — before you shop. No sign-up, no email, nothing leaves your browser.</p>
+<div class="chips"><span class="chip">Free</span><span class="chip">No sign-up</span><span class="chip">Estimate only</span></div></div>
+<div class="hero-art" style="display:block"><div class="tile" style="background:#0E3B2E;color:#D4A94E;border-radius:14px;display:flex;align-items:center;justify-content:center;min-height:180px" role="img" aria-label="Calculator illustration"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="11" x2="8" y2="11.01"/><line x1="12" y1="11" x2="12" y2="11.01"/><line x1="16" y1="11" x2="16" y2="11.01"/><line x1="8" y1="15" x2="8" y2="15.01"/><line x1="12" y1="15" x2="12" y2="15.01"/><line x1="16" y1="15" x2="16" y2="15.01"/></svg></div></div>
+</div></section>
+<div class="trust"><div class="wrap"><div class="trust-item"><b>3 gift picks per page</b><span>each with a reason</span></div><div class="trust-item"><b>Prices checked 20 Nov 2026</b><span>check before you buy</span></div><div class="trust-item"><b>0 sign-ups</b><span>no account, no email</span></div></div></div>
+<section><div class="wrap"><div class="calc">
+<div class="panel">
+<label for="people">Number of people on your list (1–50)</label>
+<input id="people" type="number" value="5" min="1" max="50" step="1">
+<label for="per-person">Budget per person ($)</label>
+<input id="per-person" type="number" value="25" min="0" step="1">
+<label for="cap">Total budget cap ($) <span class="hint">— optional; if set lower than per-person &times; people, the cap wins</span></label>
+<input id="cap" type="number" value="" min="0" step="1" placeholder="Leave blank for no cap">
+<label for="spent">Already bought — amount spent so far ($)</label>
+<input id="spent" type="number" value="0" min="0" step="1">
+<button class="btn btn-pine" id="calc-btn" style="width:100%;margin-top:18px">Calculate</button>
+<p style="margin-top:12px"><a href="#" id="calc-reset">Reset</a></p>
+</div>
+<div class="result" id="calc-result"><h3>Your Christmas gift budget <span class="badge">Estimate</span></h3><p>Press Calculate to see your result.</p></div>
+</div>
+<div class="note"><p><strong>This is a planning estimate, not financial advice.</strong> Prices change — check before you buy.</p></div>
+</div></section>
+<section><div class="wrap"><div class="ad-slot ad-rectangle ad-slot--rectangle" role="complementary" aria-label="Advertisement slot, currently unfilled"><!-- AD SLOT: rectangle 300x250 — paste ad-network code here when a network is live; until then this placeholder stays. -->Advertisement<span class="size">300 &times; 250</span></div></div></section>
+<section class="band-green"><div class="wrap"><h2>How the Gift Finder works</h2>
+<ol class="steps"><li><strong>Answer 3 questions</strong> — who the gift is for, what they like, and your budget.</li>
+<li><strong>Get 3 specific gifts</strong> — each with a reason, a real link, and a price checked 20 Nov 2026 (or an honest "Price on Amazon" where no price could be verified).</li>
+<li><strong>Buy or browse</strong> — our own printable packs check out on Payhip; Amazon links are plain links that open in a new tab.</li></ol>
+</div></section>
+<section><div class="wrap"><div class="pack-cta">
+<img src="../assets/img/mega-preview-01-cover.png" alt="Christmas Printables Mega Pack cover" width="150" height="194" loading="lazy">
+<div class="txt"><h2>Christmas Printables Mega Pack — $7</h2>
+<p>Working out the budget is step one — the Mega Pack covers the games and decor in one download.</p>
+<p>Instant download — no shipping, no waiting for a parcel.</p>
+<ul class="check"><li>Gift tags, bingo, trivia and a scavenger hunt</li>
+<li>Kids activities and a holiday planner</li>
+<li>Budget tracker included</li></ul>
+<p><a class="btn btn-red" href="https://payhip.com/b/dDNa4">Buy — $7</a></p>
+</div></div></div></section>
+<section><div class="wrap"><h2>Questions</h2>
+<div class="faq">
+<details><summary>Is this financial advice?</summary><p>No. This is a planning estimate, not financial advice. It only adds up the numbers you type in — it does not know your income, debts or other commitments. Prices change — check before you buy.</p></details>
+<details><summary>What does the total budget cap do?</summary><p>If you set a total cap lower than per-person budget times people, the cap wins: the calculator lowers your per-person figure to fit the cap, and says so in the result.</p></details>
+<details><summary>What if I have already bought some gifts?</summary><p>Type what you have spent so far into “already bought”. The calculator subtracts it and shows what is left — the bar shows spent versus remaining.</p></details>
+<details><summary>Is my data sent anywhere?</summary><p>No. The calculator runs entirely in your browser. Nothing you type leaves your device, and there is no sign-up or email gate on the result.</p></details>
+<details><summary>What fits my per-person budget?</summary><p>The result lists our printable packs at or under your per-person figure, and links to the Gift Finder with your budget pre-selected.</p></details>
+</div>
+</div></section>
+<section><div class="wrap"><h2>More gift ideas</h2><div class="grid"><div class="card"><div class="body"><h3><a href="../gifts-for-mom-under-25/">Mom under $25</a></h3><p><a href="../gifts-for-mom-under-25/">See the picks &rarr;</a></p></div></div><div class="card"><div class="body"><h3><a href="../stocking-stuffers-under-10/">Stocking Stuffers</a></h3><p><a href="../stocking-stuffers-under-10/">See the picks &rarr;</a></p></div></div><div class="card"><div class="body"><h3><a href="../gifts-for-teachers-under-20/">Teachers</a></h3><p><a href="../gifts-for-teachers-under-20/">See the picks &rarr;</a></p></div></div></div></div></section>
+
+</main>
+<footer class="site"><div class="wrap"><div class="foot-grid">
+<div><h3>Holiday Gift Finder</h3>
+<p>Holiday Gift Finder helps you find a Christmas gift in three questions — no sign-up, no email needed. Made by the same maker as Merry Printables.</p>
+<p>Sister sites: <a href="https://hanxianqing.github.io/">Merry Printables</a> · <a href="https://hanxianqing.github.io/localtools/">LocalTools</a> · <a href="https://hanxianqing.github.io/classroomkit/">ClassroomKit</a> · <a href="https://hanxianqing.github.io/templatepack/">TemplatePack</a> · <a href="https://hanxianqing.github.io/pennymath/">PennyMath</a></p></div>
+<div><h3>Gift ideas</h3><ul>
+<li><a href="../index.html">Gift Finder</a></li><li><a href="../gifts-for-mom-under-25/">Mom under $25</a></li><li><a href="../stocking-stuffers-under-10/">Stocking Stuffers</a></li><li><a href="../gifts-for-teachers-under-20/">Teachers</a></li><li><a href="../gifts-for-boyfriend-under-50/">Boyfriend</a></li><li><a href="../podcast-microphone-under-100/">Mic under $100</a></li><li><a href="../classic-toy-train-set/">Toy Train</a></li><li><a href="../last-minute-christmas-gifts/">Last Minute</a></li><li><a href="../christmas-gift-budget-calculator/">Budget Calculator</a></li><li><a href="../advertise/">Advertise</a></li></ul></div>
+<div><h3>More</h3><ul>
+<li><a href="../advertise/">Advertise with us</a></li>
+<li><a href="https://payhip.com/MerryPrintables">Merry Printables store</a></li>
+<li><a href="https://payhip.com/b/dDNa4">Christmas Printables Mega Pack — $7</a></li>
+</ul></div></div>
+<p class="foot-base">&copy; 2026 Holiday Gift Finder &middot; Prices checked 20 Nov 2026 — check before you buy. Amazon links are plain links; we earn nothing from them yet.</p>
+</div></footer>
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "<redacted>"}'></script>
+<script>
+function $(id){ return document.getElementById(id); }
+function num(id, def){ var v = parseFloat($(id).value); return isFinite(v) ? v : def; }
+function fmt(n){ return '$' + Math.round(n).toLocaleString('en-US'); }
+function fmt2(n){ return '$' + Number(n).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}); }
+var PACKS = [
+  {name: 'Christmas Party Games', price: 6, url: 'https://payhip.com/b/j2Uzu'},
+  {name: "New Year's Eve Party Games", price: 6, url: 'https://payhip.com/b/pz2OZ'},
+  {name: 'Christmas Printables Mega Pack', price: 7, url: 'https://payhip.com/b/dDNa4'},
+  {name: 'Math Worksheet Bundle', price: 7, url: 'https://payhip.com/b/HG85p'},
+  {name: '2027 Goal & Habit Planner', price: 8, url: 'https://payhip.com/b/b0zNT'},
+  {name: 'Money Planner Pack 2027', price: 8, url: 'https://payhip.com/b/PxSX7'},
+  {name: 'Classroom Games Mega Pack', price: 9, url: 'https://payhip.com/b/A7ElZ'},
+  {name: 'Resume & Cover Letter Pack', price: 9, url: 'https://payhip.com/b/NGe5f'},
+  {name: 'Business Templates Pro Pack', price: 12, url: 'https://payhip.com/b/h4Z8B'}
+];
+function calcBudget(){
+  var people = Math.max(1, Math.min(50, Math.round(num('people', 5))));
+  var per = Math.max(0, num('per-person', 25));
+  var cap = num('cap', NaN);
+  var spent = Math.max(0, num('spent', 0));
+  var rawTotal = per * people;
+  var capped = isFinite(cap) && cap > 0 && cap < rawTotal;
+  var total = capped ? cap : rawTotal;
+  var effPer = total / people;
+  var remaining = Math.max(0, total - spent);
+  var pctSpent = total > 0 ? Math.min(100, spent / total * 100) : 0;
+  var fits = PACKS.filter(function(p){ return p.price <= effPer; });
+  var fitsHtml = fits.length
+    ? '<p style="margin-top:14px">Packs that fit ' + fmt2(effPer) + ' per person: ' + fits.map(function(p){ return '<a href="' + p.url + '" style="color:#D4A94E">' + p.name + ' — $' + p.price + '</a>'; }).join(' &middot; ') + '</p>'
+    : '<p style="margin-top:14px">No printable pack fits ' + fmt2(effPer) + ' per person — the cheapest pack is $6. Try the <a href="../index.html" style="color:#D4A94E">Gift Finder</a> for other ideas.</p>';
+  var capNote = capped
+    ? '<p>Your per-person budget was lowered to fit your ' + fmt(cap) + ' total cap: ' + fmt2(effPer) + ' per person instead of ' + fmt2(per) + '.</p>'
+    : '';
+  $('calc-result').innerHTML =
+    '<h3>Your Christmas gift budget <span class="badge">Estimate</span></h3>' +
+    '<div class="big">' + fmt(total) + '</div>' +
+    '<p>' + fmt2(effPer) + ' &times; ' + people + ' people = ' + fmt(total) + '</p>' +
+    '<table><tr><th>People on your list</th><td class="num">' + people + '</td></tr>' +
+    '<tr><th>Budget per person</th><td class="num">' + fmt2(effPer) + '</td></tr>' +
+    '<tr><th>Total budget</th><td class="num">' + fmt(total) + '</td></tr>' +
+    '<tr><th>Already spent</th><td class="num">' + fmt(spent) + '</td></tr>' +
+    '<tr><th>Remaining</th><td class="num">' + fmt(remaining) + '</td></tr></table>' +
+    '<div class="bar-split" role="img" aria-label="Spent ' + fmt(spent) + ' of ' + fmt(total) + '"><div class="spent" style="width:' + pctSpent + '%"></div><div class="left" style="width:' + (100 - pctSpent) + '%"></div></div>' +
+    '<div class="bar-legend"><span><i style="background:#D4A94E"></i>Spent ' + fmt(spent) + '</span><span><i style="background:#5A8F7B"></i>Remaining ' + fmt(remaining) + '</span></div>' +
+    capNote + fitsHtml +
+    '<p style="margin-top:14px">What fits this budget? <a href="../index.html#budget=' + (effPer <= 10 ? 10 : effPer <= 25 ? 25 : effPer <= 50 ? 50 : 100) + '" style="color:#D4A94E">Try the Gift Finder with this budget &rarr;</a></p>';
+}
+$('calc-btn').addEventListener('click', calcBudget);
+$('calc-reset').addEventListener('click', function(e){ e.preventDefault(); $('people').value = 5; $('per-person').value = 25; $('cap').value = ''; $('spent').value = 0; calcBudget(); });
+calcBudget();
+</script>
+</body></html>
