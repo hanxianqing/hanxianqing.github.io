@@ -23,6 +23,11 @@ nav.main{display:flex;flex-wrap:wrap;gap:6px 26px}
 .nav-label{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:#9db8ab;font-weight:700}
 nav.main a{color:#dfe9e2;text-decoration:none;font-size:.95rem}
 nav.main a:hover{color:var(--gold)}
+/* ---- signature ribbon (XS-P1-2): red/gold/pine diagonal stripe under the
+   header on every page — the visual mark that sets this site apart from
+   its sister sites. Brand palette unchanged. ---- */
+.ribbon{height:10px;background:repeating-linear-gradient(-45deg,var(--red) 0 18px,var(--gold) 18px 36px,var(--pine) 36px 54px)}
+.eyebrow{display:inline-block;background:var(--pine);color:var(--gold);font-size:.8rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:7px 16px;border-radius:999px;margin-bottom:14px}
 /* ---- breadcrumbs ---- */
 .crumbs{font-size:.86rem;color:var(--muted);padding:14px 0 0}
 .crumbs a{color:var(--muted);text-decoration:none}
@@ -160,7 +165,7 @@ footer.site{background:var(--pine);color:#cfe0d6;padding:36px 0 24px;margin-top:
   .nav-label{display:none}
 }
 @media print{
-  header.site,footer.site,.no-print,.hero .btn,.trust,.picks,.related{display:none!important}
+  header.site,footer.site,.ribbon,.no-print,.hero .btn,.trust,.picks,.related{display:none!important}
   body{font-size:12pt}
   .bingo-card,.ws-grid{break-inside:avoid}
 }
