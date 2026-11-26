@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://hanxianqing.github.io/templatepack/</loc><lastmod>2026-11-26</lastmod></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url><loc>https://hanxianqing.github.io/templatepack/</loc><lastmod>2026-11-26</lastmod><image:image><image:loc>https://hanxianqing.github.io/templatepack/assets/pack-cover.svg</image:loc><image:caption>pack-cover.svg</image:caption></image:image><image:image><image:loc>https://hanxianqing.github.io/templatepack/assets/resume-pack-cover.png</image:loc><image:caption>resume-pack-cover.png</image:caption></image:image></url>
   <url><loc>https://hanxianqing.github.io/templatepack/meeting-agenda-templates</loc><lastmod>2026-11-26</lastmod></url>
   <url><loc>https://hanxianqing.github.io/templatepack/follow-up-email-templates</loc><lastmod>2026-11-26</lastmod></url>
   <url><loc>https://hanxianqing.github.io/templatepack/business-email-templates</loc><lastmod>2026-11-26</lastmod></url>
   <url><loc>https://hanxianqing.github.io/templatepack/checklists</loc><lastmod>2026-11-26</lastmod></url>
-  <url><loc>https://hanxianqing.github.io/templatepack/business-templates-pro-pack</loc><lastmod>2026-11-26</lastmod></url>
-  <url><loc>https://hanxianqing.github.io/templatepack/resume-cover-letter-pack</loc><lastmod>2026-11-26</lastmod></url>
+  <url><loc>https://hanxianqing.github.io/templatepack/business-templates-pro-pack</loc><lastmod>2026-11-26</lastmod><image:image><image:loc>https://hanxianqing.github.io/templatepack/assets/pack-cover.svg</image:loc><image:caption>pack-cover.svg</image:caption></image:image></url>
+  <url><loc>https://hanxianqing.github.io/templatepack/resume-cover-letter-pack</loc><lastmod>2026-11-26</lastmod><image:image><image:loc>https://hanxianqing.github.io/templatepack/assets/resume-pack-cover.png</image:loc><image:caption>resume-pack-cover.png</image:caption></image:image></url>
   <url><loc>https://hanxianqing.github.io/templatepack/all-templates</loc><lastmod>2026-11-26</lastmod></url>
   <url><loc>https://hanxianqing.github.io/templatepack/advertise</loc><lastmod>2026-11-26</lastmod></url>
   <url><loc>https://hanxianqing.github.io/templatepack/fresh</loc><lastmod>2026-11-26</lastmod></url>
   <url><loc>https://hanxianqing.github.io/templatepack/free-templates</loc><lastmod>2026-11-26</lastmod></url>
-  <url><loc>https://hanxianqing.github.io/templatepack/free-resume-templates</loc><lastmod>2026-11-26</lastmod></url>
-  <url><loc>https://hanxianqing.github.io/templatepack/free-cover-letter-templates</loc><lastmod>2026-11-26</lastmod></url>
-  <url><loc>https://hanxianqing.github.io/templatepack/free-cv-templates</loc><lastmod>2026-11-26</lastmod></url>
+  <url><loc>https://hanxianqing.github.io/templatepack/free-resume-templates</loc><lastmod>2026-11-26</lastmod><image:image><image:loc>https://hanxianqing.github.io/templatepack/assets/resume-pack-cover.png</image:loc><image:caption>resume-pack-cover.png</image:caption></image:image></url>
+  <url><loc>https://hanxianqing.github.io/templatepack/free-cover-letter-templates</loc><lastmod>2026-11-26</lastmod><image:image><image:loc>https://hanxianqing.github.io/templatepack/assets/resume-pack-cover.png</image:loc><image:caption>resume-pack-cover.png</image:caption></image:image></url>
+  <url><loc>https://hanxianqing.github.io/templatepack/free-cv-templates</loc><lastmod>2026-11-26</lastmod><image:image><image:loc>https://hanxianqing.github.io/templatepack/assets/resume-pack-cover.png</image:loc><image:caption>resume-pack-cover.png</image:caption></image:image></url>
   <url><loc>https://hanxianqing.github.io/templatepack/free-meeting-notes-templates</loc><lastmod>2026-11-26</lastmod></url>
   <url><loc>https://hanxianqing.github.io/templatepack/free-invoice-templates</loc><lastmod>2026-11-26</lastmod></url>
   <url><loc>https://hanxianqing.github.io/templatepack/free-budget-templates</loc><lastmod>2026-11-26</lastmod></url>
