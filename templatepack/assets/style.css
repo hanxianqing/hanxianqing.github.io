@@ -123,8 +123,30 @@ footer.site{background:var(--pine);color:#cfe0d6;padding:36px 0 24px;margin-top:
 .start6 a:hover{text-decoration:underline}
 .tips{background:#fff;border:1px solid var(--gold);border-left:6px solid var(--gold);border-radius:0 12px 12px 0;padding:18px 22px;margin:20px 0}
 .tips h3{margin-top:0}
+/* ---- product pages (TP-P1-1) & hero visual (XS-P1-2) ---- */
+.hero-home .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:36px;align-items:center}
+.hero-visual{display:flex;justify-content:center}
+.doc-mock{position:relative;background:#fffdf4;color:#22292a;border-radius:10px;padding:30px 22px 16px;width:300px;max-width:100%;transform:rotate(2deg);box-shadow:0 18px 40px rgba(0,0,0,.35);font-size:.92rem;line-height:1.55;text-align:left}
+.doc-mock p{margin-bottom:8px}
+.doc-mock .doc-subj{font-weight:700;color:var(--pine);border-bottom:1px dashed var(--line);padding-bottom:8px}
+.doc-mock .doc-lines{color:#3c4a45}
+.doc-tape{position:absolute;top:-13px;left:50%;transform:translateX(-50%) rotate(-2deg);background:var(--gold);color:var(--pine);font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:4px 14px;border-radius:3px;box-shadow:0 2px 6px rgba(0,0,0,.25);white-space:nowrap}
+.doc-copy{display:inline-block;background:var(--pine);color:#fff;font-weight:700;font-size:.82rem;border-radius:999px;padding:5px 14px;margin-top:4px}
+.doc-stamp{position:absolute;right:-14px;bottom:-14px;background:var(--red);color:#fff;font-family:var(--serif);font-weight:700;font-size:.85rem;border-radius:50%;width:74px;height:74px;display:flex;align-items:center;justify-content:center;text-align:center;line-height:1.15;transform:rotate(8deg);box-shadow:0 6px 16px rgba(192,57,43,.45)}
+.filelist h3{margin-top:22px}
+.filelist ul{list-style:none;margin:0 0 8px;columns:2;column-gap:28px}
+.filelist li{break-inside:avoid;position:relative;padding-left:18px;margin-bottom:5px;font-size:.95rem}
+.filelist li::before{content:"";position:absolute;left:0;top:.62em;width:7px;height:7px;background:var(--gold);border-radius:2px}
+.filelist li .fmt{color:var(--muted);font-size:.85rem}
+.also-box{background:var(--cream);border:1px solid var(--gold);border-radius:12px;padding:14px 18px;margin:18px 0}
+.also-box p{margin:0}
+.like-card p.price{margin-bottom:4px}
 @media(max-width:860px){
+  .hero-home .wrap{grid-template-columns:1fr}
   .hero-home h1{font-size:1.8rem}
+  .hero-visual{margin-top:6px}
+  .doc-stamp{right:0}
+  .filelist ul{columns:1}
   .hero h1{font-size:1.7rem}
   .buybox-grid{grid-template-columns:1fr}
   .foot-grid{grid-template-columns:1fr;gap:20px}
@@ -141,4 +163,16 @@ footer.site{background:var(--pine);color:#cfe0d6;padding:36px 0 24px;margin-top:
   body{font-size:11pt}
   .tpl-card{border:1px solid #999;break-inside:avoid}
   .print-hidden{display:none!important}
+}
+/* Free Templates Directory: source tables */
+.sources{width:100%;border-collapse:collapse;margin:18px 0;font-size:.95rem}
+.sources th,.sources td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top}
+.sources th{background:var(--cream);color:var(--pine);font-family:var(--serif)}
+.sources tr:nth-child(even) td{background:#fdf8ea}
+@media(max-width:640px){
+  .sources,.sources tbody,.sources tr,.sources td{display:block;width:100%}
+  .sources thead{display:none}
+  .sources td{border:0;border-bottom:1px solid var(--line)}
+  .sources td:first-child{font-weight:700;background:var(--cream)}
+  .sources tr{border:1px solid var(--line);margin-bottom:12px;border-radius:10px;overflow:hidden}
 }
